@@ -1,0 +1,588 @@
+fileFormatVersion: 2
+guid: 571ba40f5ea9b5342a69137db089b07a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5529864037285893023
+    second: snowhome_0
+  - first:
+      213: -8244354962835538910
+    second: snowhome_1
+  - first:
+      213: -5893297741694110722
+    second: snowhome_2
+  - first:
+      213: 7357590272199680941
+    second: snowhome_3
+  - first:
+      213: -6662045012742501792
+    second: snowhome_4
+  - first:
+      213: -8547816172472921147
+    second: snowhome_5
+  - first:
+      213: -2815648468536832660
+    second: snowhome_6
+  - first:
+      213: -3152959422031559830
+    second: snowhome_7
+  - first:
+      213: 7038246783593344643
+    second: snowhome_8
+  - first:
+      213: 4191593830095090596
+    second: snowhome_9
+  - first:
+      213: -4147390310960114252
+    second: snowhome_10
+  - first:
+      213: 6742566340122696372
+    second: snowhome_11
+  - first:
+      213: -7953469660305933320
+    second: snowhome_12
+  - first:
+      213: 1374483232581725360
+    second: snowhome_13
+  - first:
+      213: 2403228789519582570
+    second: snowhome_14
+  - first:
+      213: -7501511090303111527
+    second: snowhome_15
+  - first:
+      213: -8313535245403555261
+    second: snowhome_16
+  - first:
+      213: -2441688846625084689
+    second: snowhome_17
+  - first:
+      213: -5412273006259614220
+    second: snowhome_18
+  - first:
+      213: 2113749104564376556
+    second: snowhome_19
+  - first:
+      213: -7621587173404594302
+    second: snowhome_20
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 64
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: snowhome_0
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 1014
+        width: 333
+        height: 251
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16ced51e4f9f143b0800000000000000
+      internalID: -5529864037285893023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snowhome_1
+      rect:
+        serializedVersion: 2
+        x: 597
+        y: 992
+        width: 333
+        height: 298
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22c75fd77da269d80800000000000000
+      internalID: -8244354962835538910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snowhome_2
+      rect:
+        serializedVersion: 2
+        x: 991
+        y: 1016
+        width: 336
+        height: 266
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef3f5be8decc63ea0800000000000000
+      internalID: -5893297741694110722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snowhome_3
+      rect:
+        serializedVersion: 2
+        x: 1552
+        y: 970
+        width: 424
+        height: 358
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da3e451de596b1660800000000000000
+      internalID: 7357590272199680941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snowhome_4
+      rect:
+        serializedVersion: 2
+        x: 2162
+        y: 975
+        width: 481
+        height: 301
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06a02d1ab59ab83a0800000000000000
+      internalID: -6662045012742501792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snowhome_5
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 578
+        width: 472
+        height: 372
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c3996aba7e006980800000000000000
+      internalID: -8547816172472921147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snowhome_8
+      rect:
+        serializedVersion: 2
+        x: 585
+        y: 585
+        width: 372
+        height: 360
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38eed91d820eca160800000000000000
+      internalID: 7038246783593344643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snowhome_9
+      rect:
+        serializedVersion: 2
+        x: 993
+        y: 577
+        width: 460
+        height: 384
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a3798561688b2a30800000000000000
+      internalID: 4191593830095090596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snowhome_10
+      rect:
+        serializedVersion: 2
+        x: 1585
+        y: 596
+        width: 291
+        height: 325
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b5535a6c728176c0800000000000000
+      internalID: -4147390310960114252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snowhome_11
+      rect:
+        serializedVersion: 2
+        x: 2112
+        y: 786
+        width: 178
+        height: 174
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4bad489dc58629d50800000000000000
+      internalID: 6742566340122696372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snowhome_12
+      rect:
+        serializedVersion: 2
+        x: 2361
+        y: 864
+        width: 156
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8fb3e95bb799f9190800000000000000
+      internalID: -7953469660305933320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snowhome_13
+      rect:
+        serializedVersion: 2
+        x: 2545
+        y: 864
+        width: 144
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0bca3cbb735231310800000000000000
+      internalID: 1374483232581725360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snowhome_16
+      rect:
+        serializedVersion: 2
+        x: 2112
+        y: 574
+        width: 49
+        height: 176
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34af706cdb360ac80800000000000000
+      internalID: -8313535245403555261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snowhome_17
+      rect:
+        serializedVersion: 2
+        x: 2644
+        y: 572
+        width: 49
+        height: 176
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: feae0ec3ee06d1ed0800000000000000
+      internalID: -2441688846625084689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snowhome_18
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 26
+        width: 482
+        height: 508
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4fdc572506eb3e4b0800000000000000
+      internalID: -5412273006259614220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snowhome_19
+      rect:
+        serializedVersion: 2
+        x: 2113
+        y: 384
+        width: 180
+        height: 119
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce31cd98c9b855d10800000000000000
+      internalID: 2113749104564376556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snowhome_20
+      rect:
+        serializedVersion: 2
+        x: 2521
+        y: 380
+        width: 169
+        height: 144
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28fab80c8deaa3690800000000000000
+      internalID: -7621587173404594302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 8e3fef32b1ebbb843abe5b59af596187
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      snowhome_0: -5529864037285893023
+      snowhome_1: -8244354962835538910
+      snowhome_10: -4147390310960114252
+      snowhome_11: 6742566340122696372
+      snowhome_12: -7953469660305933320
+      snowhome_13: 1374483232581725360
+      snowhome_14: 2403228789519582570
+      snowhome_15: -7501511090303111527
+      snowhome_16: -8313535245403555261
+      snowhome_17: -2441688846625084689
+      snowhome_18: -5412273006259614220
+      snowhome_19: 2113749104564376556
+      snowhome_2: -5893297741694110722
+      snowhome_20: -7621587173404594302
+      snowhome_3: 7357590272199680941
+      snowhome_4: -6662045012742501792
+      snowhome_5: -8547816172472921147
+      snowhome_6: -2815648468536832660
+      snowhome_7: -3152959422031559830
+      snowhome_8: 7038246783593344643
+      snowhome_9: 4191593830095090596
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

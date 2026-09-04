@@ -5,16 +5,17 @@ TagManager:
   serializedVersion: 3
   tags:
   - Enemy
+  - Tree
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
   - Enemies
-  - 
-  - 
+  - Obstacle
+  - Tree
   - 
   - 
   - 

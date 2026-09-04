@@ -5,9 +5,27 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 0
+    path: Assets/Scenes/TalentRollScene.unity
+    guid: 80f870d7121562b4b8bd841c97a07f9d
+  - enabled: 1
+    path: Assets/Scenes/Login.unity
+    guid: 8d72daa5baa4ecf4db122d824eff5765
+  - enabled: 1
+    path: Assets/Scenes/Snow.unity
+    guid: 4343fe675b57d6a43bdb0dfd824c11e6
+  - enabled: 1
+    path: Assets/Scenes/MainMap1.unity
+    guid: 715b4d65c41ccb54e8f1c7a9691574c7
+  - enabled: 1
+    path: Assets/Scenes/Home.unity
+    guid: ce233168702b34449ab5ebd7769921e2
+  - enabled: 1
+    path: Assets/Scenes/beerHouse.unity
+    guid: 2bc2aea9145bc124c9b554f820994b2a
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

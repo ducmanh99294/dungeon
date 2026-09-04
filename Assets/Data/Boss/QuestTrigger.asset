@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff5b93005c7018a46beb9377f578e746, type: 3}
+  m_Name: QuestTrigger
+  m_EditorClassIdentifier: Assembly-CSharp::QuestTriggerData
+  questToTrigger: {fileID: 11400000, guid: dee542ae06a082d4a91c1764533e5668, type: 2}
+  triggerType: 0
+  enemyType: Slime
+  killCountNeeded: 50
+  triggerChance: 50
+  canTriggerOnce: 1
