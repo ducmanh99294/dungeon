@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: SlimeLootTable
+  m_EditorClassIdentifier: Assembly-CSharp::LootTable
+  entries:
+  - itemPrefab: {fileID: 2455965282541548233, guid: 7de657aafac24cc41b8f08c925fee16e, type: 3}
+    itemName: Slime Gel
+    dropChance: 80
+    minAmount: 1
+    maxAmount: 5
+    rarity: 0
+  - itemPrefab: {fileID: 1993369039901089064, guid: 915f3b109d1e0fe49af4c596a9267e87, type: 3}
+    itemName: Slime Core
+    dropChance: 20
+    minAmount: 1
+    maxAmount: 3
+    rarity: 1
+  - itemPrefab: {fileID: 1906795144807032439, guid: 88a876f56b012df4db041423ff28b274, type: 3}
+    itemName: Rare Crystal
+    dropChance: 5
+    minAmount: 1
+    maxAmount: 1
+    rarity: 2
+  - itemPrefab: {fileID: 2455965282541548233, guid: 79ba75d6c120dd64287ae13c95cd7050, type: 3}
+    itemName: Skill Book
+    dropChance: 100
+    minAmount: 1
+    maxAmount: 1
+    rarity: 1
