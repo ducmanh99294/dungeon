@@ -15,11 +15,14 @@ EditorBuildSettings:
     path: Assets/Scenes/Login.unity
     guid: 8d72daa5baa4ecf4db122d824eff5765
   - enabled: 1
-    path: Assets/Scenes/Snow.unity
-    guid: 4343fe675b57d6a43bdb0dfd824c11e6
-  - enabled: 1
     path: Assets/Scenes/MainMap1.unity
     guid: 715b4d65c41ccb54e8f1c7a9691574c7
+  - enabled: 1
+    path: Assets/Scenes/MainMap.unity
+    guid: e8b6bc01337d7094eadf76ef2525359b
+  - enabled: 1
+    path: Assets/Scenes/Snow.unity
+    guid: 4343fe675b57d6a43bdb0dfd824c11e6
   - enabled: 1
     path: Assets/Scenes/Home.unity
     guid: ce233168702b34449ab5ebd7769921e2

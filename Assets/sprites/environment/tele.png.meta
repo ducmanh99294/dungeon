@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -116,12 +116,12 @@ TextureImporter:
       name: tele_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 2752
-        height: 1536
+        x: 4
+        y: 1382
+        width: 424
+        height: 371
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -134,11 +134,275 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: tele_1
+      rect:
+        serializedVersion: 2
+        x: 436
+        y: 1383
+        width: 424
+        height: 371
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bef19c100402c7247a8dfa11acb0b3cc
+      internalID: 965827518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tele_2
+      rect:
+        serializedVersion: 2
+        x: 869
+        y: 1385
+        width: 424
+        height: 368
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9020a3c93d55864b964f6ec637069d6
+      internalID: -2031165015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tele_3
+      rect:
+        serializedVersion: 2
+        x: 1299
+        y: 1382
+        width: 425
+        height: 371
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e2058c7a391e5d41a9c31629ec08455
+      internalID: 620301269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tele_4
+      rect:
+        serializedVersion: 2
+        x: 1730
+        y: 1382
+        width: 426
+        height: 372
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f32e447f79cb3e45be79d383cf91440
+      internalID: -1940475208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tele_5
+      rect:
+        serializedVersion: 2
+        x: 2166
+        y: 1381
+        width: 423
+        height: 372
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f26ff1b42fc4964da6ae777eb3bd7aa
+      internalID: -1856410766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tele_6
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 951
+        width: 423
+        height: 373
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17086892d70cdc94fbbedcaeccbabcfc
+      internalID: -795557953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tele_7
+      rect:
+        serializedVersion: 2
+        x: 436
+        y: 951
+        width: 424
+        height: 373
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03d538c21c8bd6447a3f78e7b46f708a
+      internalID: 753515097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tele_8
+      rect:
+        serializedVersion: 2
+        x: 869
+        y: 951
+        width: 420
+        height: 372
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fd47ce5662316d41b9382088b21ab70
+      internalID: -686367461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tele_9
+      rect:
+        serializedVersion: 2
+        x: 1306
+        y: 951
+        width: 418
+        height: 370
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b111ecf5ce2017469cdf2f08d54ce4e
+      internalID: 1779704594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tele_10
+      rect:
+        serializedVersion: 2
+        x: 1734
+        y: 951
+        width: 420
+        height: 372
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 342c443f59f9ae242a6798a36cdadcab
+      internalID: -1932489586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tele_11
+      rect:
+        serializedVersion: 2
+        x: 2166
+        y: 951
+        width: 421
+        height: 373
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cb52f363946b9d4f8139d175830f71f
+      internalID: 1450869992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tele_12
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 519
+        width: 421
+        height: 371
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7f7428433ee13b4f8ea9a8828d031ad
+      internalID: 1199691160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: a23cc8cd91ce9524aa920d8d78c17e2b
     internalID: 0
     vertices: []
     indices: 
@@ -146,9 +410,23 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":432.0,"y":432.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       tele_0: -5172915189388297277
+      tele_1: 965827518
+      tele_10: -1932489586
+      tele_11: 1450869992
+      tele_12: 1199691160
+      tele_2: -2031165015
+      tele_3: 620301269
+      tele_4: -1940475208
+      tele_5: -1856410766
+      tele_6: -795557953
+      tele_7: 753515097
+      tele_8: -686367461
+      tele_9: 1779704594
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

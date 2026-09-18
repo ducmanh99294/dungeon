@@ -1,0 +1,442 @@
+fileFormatVersion: 2
+guid: be0b741fa304bcb44bbaad109dea08fb
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8715545122510341097
+    second: houseFrorest_0
+  - first:
+      213: -8278046416467174631
+    second: houseFrorest_1
+  - first:
+      213: 2437212984176114802
+    second: houseFrorest_2
+  - first:
+      213: -145601988058664334
+    second: houseFrorest_3
+  - first:
+      213: 6953294457659084441
+    second: houseFrorest_4
+  - first:
+      213: 1785533895199484858
+    second: houseFrorest_5
+  - first:
+      213: 8881564355047577374
+    second: houseFrorest_6
+  - first:
+      213: 3179180853252592249
+    second: houseFrorest_7
+  - first:
+      213: -9113895095254250668
+    second: houseFrorest_8
+  - first:
+      213: -1557466663016937409
+    second: houseFrorest_9
+  - first:
+      213: -4766094487886923541
+    second: houseFrorest_10
+  - first:
+      213: 312600639531176279
+    second: houseFrorest_11
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: houseFrorest_0
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 1164
+        width: 357
+        height: 269
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71cf1e453e92c0780800000000000000
+      internalID: -8715545122510341097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: houseFrorest_1
+      rect:
+        serializedVersion: 2
+        x: 645
+        y: 1145
+        width: 349
+        height: 315
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91b5748a4a87e1d80800000000000000
+      internalID: -8278046416467174631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: houseFrorest_2
+      rect:
+        serializedVersion: 2
+        x: 1081
+        y: 1177
+        width: 349
+        height: 272
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27c79c3db48b2d120800000000000000
+      internalID: 2437212984176114802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: houseFrorest_3
+      rect:
+        serializedVersion: 2
+        x: 1588
+        y: 1129
+        width: 458
+        height: 368
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2723c2763c7bafdf0800000000000000
+      internalID: -145601988058664334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: houseFrorest_4
+      rect:
+        serializedVersion: 2
+        x: 2128
+        y: 1123
+        width: 523
+        height: 325
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99e467718701f7060800000000000000
+      internalID: 6953294457659084441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: houseFrorest_5
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 701
+        width: 43
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: abbe8c51e9d77c810800000000000000
+      internalID: 1785533895199484858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: houseFrorest_6
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 667
+        width: 479
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e17d16079b7a14b70800000000000000
+      internalID: 8881564355047577374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: houseFrorest_7
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 656
+        width: 130
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97218da5428be1c20800000000000000
+      internalID: 3179180853252592249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: houseFrorest_8
+      rect:
+        serializedVersion: 2
+        x: 633
+        y: 669
+        width: 401
+        height: 380
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45b0237c2b0f48180800000000000000
+      internalID: -9113895095254250668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: houseFrorest_9
+      rect:
+        serializedVersion: 2
+        x: 1075
+        y: 662
+        width: 495
+        height: 403
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f38cc516254c26ae0800000000000000
+      internalID: -1557466663016937409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: houseFrorest_10
+      rect:
+        serializedVersion: 2
+        x: 1636
+        y: 669
+        width: 338
+        height: 377
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be87d8ba05e6bddb0800000000000000
+      internalID: -4766094487886923541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: houseFrorest_11
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 47
+        width: 664
+        height: 558
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 751d0db10a4965400800000000000000
+      internalID: 312600639531176279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      houseFrorest_0: -8715545122510341097
+      houseFrorest_1: -8278046416467174631
+      houseFrorest_10: -4766094487886923541
+      houseFrorest_11: 312600639531176279
+      houseFrorest_2: 2437212984176114802
+      houseFrorest_3: -145601988058664334
+      houseFrorest_4: 6953294457659084441
+      houseFrorest_5: 1785533895199484858
+      houseFrorest_6: 8881564355047577374
+      houseFrorest_7: 3179180853252592249
+      houseFrorest_8: -9113895095254250668
+      houseFrorest_9: -1557466663016937409
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
