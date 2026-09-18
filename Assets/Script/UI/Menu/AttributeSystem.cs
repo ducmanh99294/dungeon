@@ -12,7 +12,7 @@ public class AttributeSystem : MonoBehaviour
         public string statName;
         public TMP_Text valueText;
         public Button plusButton;
-        public int baseValue = 10;
+        public int baseValue = 1;
         public int bonusValue = 0;  // từ equipment
         public int Value => baseValue + bonusValue;
     }

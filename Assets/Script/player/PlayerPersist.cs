@@ -3,15 +3,22 @@ using UnityEngine;
 
 public class PlayerPersist : MonoBehaviour
 {
+    private static PlayerPersist instance;
+
     void Awake()
     {
-        // Nếu đã có Player khác → destroy cái mới (từ scene)
-        var existing = FindObjectsByType<PlayerPersist>(FindObjectsSortMode.None);
-        if (existing.Length > 1)
+        if (instance != null && instance != this)
         {
+            Debug.LogWarning($"[PlayerPersist] Trùng — DESTROY {gameObject.name}");
             Destroy(gameObject);
             return;
         }
+        instance = this;
         DontDestroyOnLoad(gameObject);
+    }
+
+    void OnDestroy()
+    {
+        if (instance == this) instance = null;
     }
 }

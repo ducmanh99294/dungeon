@@ -25,6 +25,9 @@ public class NetworkManager : MonoBehaviour
     public string Token { get; private set; }
 
     // Events
+    public event Action<MonsterSpawnedData> OnMonsterSpawned;
+    public event Action<MonsterKilledData> OnMonsterKilled;
+    public event Action<ZoneMonstersData> OnZoneMonsters;
     public event Action OnConnected;
     public event Action OnDisconnected;
     public event Action<PlayerData> OnPlayerJoined;
@@ -121,7 +124,24 @@ public class NetworkManager : MonoBehaviour
             var data = res.GetValue<PlayerMoveData>();
             OnPlayerMoved?.Invoke(data);
         });
+        // Trong RegisterSocketEvents()
+        socket.On("monster_spawned", res =>
+        {
+            var data = res.GetValue<MonsterSpawnedData>();
+            OnMonsterSpawned?.Invoke(data);
+        });
 
+        socket.On("monster_killed", res =>
+        {
+            var data = res.GetValue<MonsterKilledData>();
+            OnMonsterKilled?.Invoke(data);
+        });
+
+        socket.On("zone_monsters", res =>
+        {
+            var data = res.GetValue<ZoneMonstersData>();
+            OnZoneMonsters?.Invoke(data);
+        });
         // Monster damaged
         socket.On("monster_damaged", res =>
         {
@@ -194,9 +214,9 @@ public class NetworkManager : MonoBehaviour
         Log($"[Network] scene_changed: {scene}");
     }
 
-    public void SendMonsterAttack(string monsterId, int damage)
+    public void SendMonsterAttack(string monsterId, string attackId = "basic_attack")
     {
-        socket?.Emit("monster_attack", new { monsterId, damage });
+        socket?.Emit("monster_attack", new { monsterId, attackId });
     }
 
     public void SendLootDropped(string lootId, string itemId, string itemName, string rarity, float x, float y)
@@ -242,6 +262,7 @@ public class PlayerData
     public string username;
     public string scene;
     public string zoneId;
+    public float level;
     public float x;
     public float y;
 }
@@ -333,3 +354,25 @@ public class PlayerSaveData
     public int gold;
 }
 
+// Data classes mới
+[Serializable]
+public class MonsterSpawnedData
+{
+    public string monsterId;
+    public string type;
+    public string displayName;
+    public int hp;
+    public int maxHp;
+    public PositionData position;
+    public string zoneId;
+}
+
+[Serializable] public class PositionData { public float x; public float y; }
+
+[Serializable]
+public class MonsterKilledData
+{
+    public string monsterId;
+    public string killerId;
+    public int expReward;
+}

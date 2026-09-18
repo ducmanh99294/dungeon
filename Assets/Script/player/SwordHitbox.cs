@@ -1,4 +1,5 @@
 ﻿// SwordHitbox.cs — gắn vào collider của sword animation
+using System.Diagnostics;
 using UnityEngine;
 
 public class SwordHitbox : MonoBehaviour
@@ -19,41 +20,25 @@ public class SwordHitbox : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log($"[Hitbox] HIT at {Time.time:F3}");
-        if (!other.CompareTag("Enemy"))
-        {
-            Debug.Log("[Hitbox] Không phải Enemy, bỏ qua");
-            return;
-        }
+        if (!other.CompareTag("Enemy")) return;
 
-        // 1. Damage
-        var health = other.GetComponent<Health>();
-        if (health != null)
+        var netMonster = other.GetComponent<NetworkMonster>();
+        if (netMonster != null && !string.IsNullOrEmpty(netMonster.monsterId))
         {
-            Debug.Log($"[Hitbox] Gọi TakeDamage({damageAmount}) lên {other.gameObject.name}");
-            health.TakeDamage(damageAmount, transform.position);
+            // Server-authoritative — không tự TakeDamage local nữa
+            NetworkManager.Instance?.SendMonsterAttack(netMonster.monsterId);
         }
         else
         {
-            Debug.LogWarning($"[Hitbox] {other.gameObject.name} không có component Health!");
+            Debug.LogWarning($"[Hitbox] {other.gameObject.name} không có NetworkMonster/monsterId!");
         }
 
-        // 2. Spark
+        // Spark + hit stun vẫn giữ (hiệu ứng thị giác local, không ảnh hưởng logic)
         Vector2 contact = other.ClosestPoint(transform.position);
         Vector2 direction = (other.transform.position - transform.position).normalized;
         if (sparkSpawner != null)
             sparkSpawner.SpawnSpark(contact, direction);
-        else if (hitSparkPrefab != null)
-        {
-            // Spawn trực tiếp không cần spawner
-            var fx = Instantiate(hitSparkPrefab, contact, Quaternion.identity);
-            Destroy(fx, 0.15f);
-        }
-        else
-            Debug.LogWarning("[Hitbox] SparkSpawner và hitSparkPrefab đều chưa gắn!");
 
-        // 3. Hit stun
         var stun = other.GetComponent<HitStunEffect>();
         if (stun != null) stun.TriggerHitStun();
     }
-}
