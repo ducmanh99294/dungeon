@@ -39231,7 +39231,9 @@ MonoBehaviour:
   comboWindowDuration: 0.5
   swordHitboxObject: {fileID: 201740189}
   playerAnimation: {fileID: 883042358}
+  playerMovement: {fileID: 0}
   weaponPivot: {fileID: 1736715275}
+  weaponAnimator: {fileID: 0}
 --- !u!114 &883042372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59632,7 +59634,7 @@ TilemapRenderer:
   m_SortingOrder: 4
   m_MaskInteraction: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
-  m_ChunkCullingBounds: {x: 1.2451065, y: 0.86, z: 0}
+  m_ChunkCullingBounds: {x: 4.9534574, y: 3.75, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0
@@ -69825,7 +69827,7 @@ PrefabInstance:
     - target: {fileID: 3949066907020393021, guid: 2ecf7efdbf8ef7c459ab16501d2c457d, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 39bcd7c860b155e49baa37edf7da45d2, type: 2}
+      objectReference: {fileID: 9100000, guid: e5aa3064dc133c74ebeab89fc3903e95, type: 2}
     - target: {fileID: 5346902569782743562, guid: 2ecf7efdbf8ef7c459ab16501d2c457d, type: 3}
       propertyPath: m_Name
       value: Player
@@ -69850,6 +69852,10 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 1.41
       objectReference: {fileID: 0}
+    - target: {fileID: 8222213640323686837, guid: 2ecf7efdbf8ef7c459ab16501d2c457d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 5704420531145803721, guid: b57dd5573c5438a4b92699e90a741272, type: 3}
     - target: {fileID: 8222213640323686837, guid: 2ecf7efdbf8ef7c459ab16501d2c457d, type: 3}
       propertyPath: m_SortingOrder
       value: 5
