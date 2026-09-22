@@ -27,10 +27,10 @@ public class NetworkMonster : MonoBehaviour
     }
 
     // Gọi từ SwordHitbox khi đánh trúng
-    public void ReportDamage(int damage)
+    public void ReportDamage(string attackId = "basic_attack")
     {
         if (string.IsNullOrEmpty(monsterId)) return;
-        NetworkManager.Instance?.SendMonsterAttack(monsterId, damage);
+        NetworkManager.Instance?.SendMonsterAttack(monsterId, attackId);
     }
 
     void OnDestroy()

@@ -129,4 +129,6 @@ public class MultiplayerManager : MonoBehaviour
         ClearAllPlayers();
         NetworkManager.Instance?.SendSceneChanged(newScene);
     }
+
+    public void ClearOnly() => ClearAllPlayers();
 }
