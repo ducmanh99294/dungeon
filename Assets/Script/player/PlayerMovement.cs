@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     private PlayerAnimation playerAnimation;
     private bool isRunning = true;
 
+    public Vector2 CurrentMovement => movement;
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();

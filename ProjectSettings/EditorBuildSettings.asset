@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMap1.unity
     guid: 715b4d65c41ccb54e8f1c7a9691574c7
   - enabled: 1
-    path: Assets/Scenes/MainMap.unity
+    path: Assets/Scenes/test.unity
     guid: e8b6bc01337d7094eadf76ef2525359b
   - enabled: 1
     path: Assets/Scenes/Snow.unity

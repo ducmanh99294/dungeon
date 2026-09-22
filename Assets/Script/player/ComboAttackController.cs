@@ -1,5 +1,6 @@
 ﻿// ComboAttackController.cs — gắn vào Player
 using System.Collections;
+//using System.Diagnostics;
 using UnityEngine;
 
 public class ComboAttackController : MonoBehaviour
@@ -12,7 +13,11 @@ public class ComboAttackController : MonoBehaviour
     [Header("References")]
     public GameObject swordHitboxObject;
     public PlayerAnimation playerAnimation;
+    public PlayerMovement playerMovement;
     public Transform weaponPivot; // kéo WeaponPivot vào đây
+
+    [Header("Weapon Visual")]
+    public Animator weaponAnimator; // Animator riêng của vũ khí (con của weaponPivot)
 
     private Animator anim;
     private int comboStep = 0;
@@ -24,6 +29,8 @@ public class ComboAttackController : MonoBehaviour
     static readonly int HashComboStep = Animator.StringToHash("ComboStep");
     static readonly int HashAttack = Animator.StringToHash("Attack");
     static readonly int HashDirection = Animator.StringToHash("AttackDir");
+    static readonly int HashIsMoving = Animator.StringToHash("IsMoving");
+    static readonly int HashIsRunning = Animator.StringToHash("IsRunning");
 
     void Awake()
     {
@@ -47,7 +54,7 @@ public class ComboAttackController : MonoBehaviour
         }
     }
 
-    public void StartCombo()  
+    public void StartCombo()
     {
         if (comboRoutine != null) StopCoroutine(comboRoutine);
         comboStep = 1;
@@ -64,10 +71,24 @@ public class ComboAttackController : MonoBehaviour
         Vector2 rawDir = GetRawDirection();
 
         anim.SetInteger(HashDirection, dir);
+        if (weaponAnimator != null) weaponAnimator.SetInteger(HashDirection, dir);
+
         RotateWeaponPivot(dir, rawDir);
 
         if (playerAnimation != null)
             playerAnimation.LockFlip(dir == 0 && rawDir.x > 0);
+
+        // Snapshot trạng thái di chuyển ngay lúc bắt đầu combo
+        bool isMoving = GetIsMoving();
+        bool isRunning = playerMovement != null && playerMovement.IsRunning;
+
+        anim.SetBool(HashIsMoving, isMoving);
+        anim.SetBool(HashIsRunning, isRunning);
+        if (weaponAnimator != null)
+        {
+            weaponAnimator.SetBool(HashIsMoving, isMoving);
+            weaponAnimator.SetBool(HashIsRunning, isRunning);
+        }
 
         while (comboStep <= maxCombo)
         {
@@ -76,6 +97,12 @@ public class ComboAttackController : MonoBehaviour
 
             anim.SetInteger(HashComboStep, comboStep);
             anim.SetTrigger(HashAttack);
+
+            if (weaponAnimator != null)
+            {
+                weaponAnimator.SetInteger(HashComboStep, comboStep);
+                weaponAnimator.SetTrigger(HashAttack);
+            }
 
             yield return null;
             float waited = 0f;
@@ -113,6 +140,8 @@ public class ComboAttackController : MonoBehaviour
 
         yield return new WaitForSeconds(0.15f);
         anim.SetInteger(HashComboStep, 0);
+        if (weaponAnimator != null) weaponAnimator.SetInteger(HashComboStep, 0);
+
         isAttacking = false;
         comboStep = 0;
         DisableHitbox();
@@ -132,7 +161,6 @@ public class ComboAttackController : MonoBehaviour
             2 => 270f,
             _ => rawDir.x < 0 ? 180f : 0f
         };
-        Debug.Log($"[Combo] RotatePivot dir:{dir} angle:{angle}");
         weaponPivot.localRotation = Quaternion.Euler(0f, 0f, angle);
     }
 
@@ -148,6 +176,12 @@ public class ComboAttackController : MonoBehaviour
     {
         if (playerAnimation != null) return playerAnimation.LastDirection;
         return Vector2.down;
+    }
+
+    bool GetIsMoving()
+    {
+        if (playerMovement == null) return false;
+        return playerMovement.CurrentMovement != Vector2.zero;
     }
 
     public void EnableHitbox() => swordHitboxObject?.SetActive(true);

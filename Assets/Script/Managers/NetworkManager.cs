@@ -240,6 +240,29 @@ public class NetworkManager : MonoBehaviour
         Log("[Network] save_player sent");
     }
 
+    public void JoinWorldByCode(string code, System.Action<bool, string> onResult)
+    {
+        if (socket == null || !IsConnected)
+        {
+            onResult?.Invoke(false, "NOT_CONNECTED");
+            return;
+        }
+
+        socket.EmitAsync("join_world_by_code", (response) =>
+        {
+            try
+            {
+                var result = response.GetValue<JoinByCodeResult>();
+                onResult?.Invoke(result.success, result.reason);
+            }
+            catch (System.Exception e)
+            {
+                Log($"[Network] JoinWorldByCode parse error: {e.Message}");
+                onResult?.Invoke(false, "PARSE_ERROR");
+            }
+        }, new { code });
+    }
+
     // ── HELPERS ─────────────────────────────────────────────────────────────
 
     void Log(string msg)
@@ -375,4 +398,14 @@ public class MonsterKilledData
     public string monsterId;
     public string killerId;
     public int expReward;
+}
+
+[Serializable]
+public class JoinByCodeResult
+{
+    public bool success;
+    public string reason;
+    public string zoneId;
+    public string scene;
+    public bool isGuest;
 }

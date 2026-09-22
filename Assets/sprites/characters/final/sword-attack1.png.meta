@@ -1,13 +1,82 @@
 fileFormatVersion: 2
-guid: cd30e335e3935ce47b3ebe95f05e0b63
+guid: f0c3344b4f8082943b4a06781639a331
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7741060602714467792
-    second: testtt_0
+      213: -1950377815657158734
+    second: sword-attack1_0
   - first:
-      213: -5365956597076293357
-    second: testtt_1
+      213: 863190268997455728
+    second: sword-attack1_1
+  - first:
+      213: -4341414740406646344
+    second: sword-attack1_2
+  - first:
+      213: 5031458159533843565
+    second: sword-attack1_3
+  - first:
+      213: -2741514858508055475
+    second: sword-attack1_4
+  - first:
+      213: -5168220110368315583
+    second: sword-attack1_5
+  - first:
+      213: 7653323459508473562
+    second: sword-attack1_6
+  - first:
+      213: 8521530170170947299
+    second: sword-attack1_7
+  - first:
+      213: -1487709179681355471
+    second: sword-attack1_8
+  - first:
+      213: 4884335718457320668
+    second: sword-attack1_9
+  - first:
+      213: -11074304741752894
+    second: sword-attack1_10
+  - first:
+      213: 2854881429281336731
+    second: sword-attack1_11
+  - first:
+      213: 9002131965691394739
+    second: sword-attack1_12
+  - first:
+      213: 4993809000881738557
+    second: sword-attack1_13
+  - first:
+      213: -9207637637020286209
+    second: sword-attack1_14
+  - first:
+      213: 292263730698097415
+    second: sword-attack1_15
+  - first:
+      213: -4435362673744327148
+    second: sword-attack1_16
+  - first:
+      213: -3015849101876817658
+    second: sword-attack1_17
+  - first:
+      213: 1204464164887241480
+    second: sword-attack1_18
+  - first:
+      213: 8718563968816819114
+    second: sword-attack1_19
+  - first:
+      213: -5977603284468029696
+    second: sword-attack1_20
+  - first:
+      213: -7781506571689246659
+    second: sword-attack1_21
+  - first:
+      213: -6240122858709540355
+    second: sword-attack1_22
+  - first:
+      213: 6452642304014602657
+    second: sword-attack1_23
+  - first:
+      213: 6569791953772118720
+    second: sword-attack1_24
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -40,7 +109,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -54,7 +123,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 24
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -116,639 +185,551 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: testtt_0
+      name: sword-attack1_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 432
-        width: 48
-        height: 48
+        x: 162
+        y: 317
+        width: 18
+        height: 33
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0dd2191ba95cd6b60800000000000000
-      internalID: 7741060602714467792
+      spriteID: 2b7e3ffc5bddee4e0800000000000000
+      internalID: -1950377815657158734
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: testtt_1
+      name: sword-attack1_1
       rect:
         serializedVersion: 2
-        x: 48
-        y: 432
-        width: 48
-        height: 48
+        x: 600
+        y: 309
+        width: 25
+        height: 14
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3198a1fa7ea4885b0800000000000000
-      internalID: -5365956597076293357
+      spriteID: 07fca2de9faaafb00800000000000000
+      internalID: 863190268997455728
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: testtt_2
+      name: sword-attack1_2
       rect:
         serializedVersion: 2
-        x: 96
-        y: 432
-        width: 48
-        height: 48
+        x: 719
+        y: 318
+        width: 19
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 2dfc1c2175f7b384da3a5368e0029800
-      internalID: -1699018134
+      spriteID: 8b9ca6f9b4230c3c0800000000000000
+      internalID: -4341414740406646344
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: testtt_3
+      name: sword-attack1_3
       rect:
         serializedVersion: 2
-        x: 144
-        y: 432
-        width: 48
-        height: 48
+        x: 1038
+        y: 309
+        width: 31
+        height: 14
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 70f77f8b3eed0fb428b39afc4fe63fd3
-      internalID: -1011706010
+      spriteID: d64614dc98453d540800000000000000
+      internalID: 5031458159533843565
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: testtt_4
+      name: sword-attack1_4
       rect:
         serializedVersion: 2
-        x: 192
-        y: 432
-        width: 48
-        height: 48
+        x: 46
+        y: 284
+        width: 8
+        height: 23
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: d985d962e61efd54cb521edafe83871a
-      internalID: -1125246140
+      spriteID: d4c0c28e2ce24f9d0800000000000000
+      internalID: -2741514858508055475
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: testtt_6
+      name: sword-attack1_5
       rect:
         serializedVersion: 2
-        x: 288
-        y: 432
-        width: 48
-        height: 48
+        x: 282
+        y: 298
+        width: 23
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: ca0fc4aa07a0e4f4cb6fcaa8b16036a3
-      internalID: -1850348677
+      spriteID: 1476778213bc648b0800000000000000
+      internalID: -5168220110368315583
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: testtt_7
+      name: sword-attack1_6
       rect:
         serializedVersion: 2
-        x: 336
-        y: 432
-        width: 48
-        height: 48
+        x: 430
+        y: 286
+        width: 25
+        height: 21
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 0508499d672dd8348b38dd8e879663f2
-      internalID: 156900070
+      spriteID: ade8a2b2321163a60800000000000000
+      internalID: 7653323459508473562
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: testtt_9
+      name: sword-attack1_7
       rect:
         serializedVersion: 2
-        x: 432
-        y: 432
-        width: 48
-        height: 48
+        x: 851
+        y: 299
+        width: 26
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 7a663ec14b79df440ba10a7af20971da
-      internalID: 1246880312
+      spriteID: 3e630df6a8e824670800000000000000
+      internalID: 8521530170170947299
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: testtt_10
+      name: sword-attack1_8
       rect:
         serializedVersion: 2
-        x: 0
-        y: 384
-        width: 48
-        height: 48
+        x: 959
+        y: 287
+        width: 24
+        height: 21
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: d94d1e6f16eb1fc4388ae4985a6e397b
-      internalID: 667143514
+      spriteID: 139410022689a5be0800000000000000
+      internalID: -1487709179681355471
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: testtt_8
+      name: sword-attack1_9
       rect:
         serializedVersion: 2
-        x: 384
-        y: 432
-        width: 48
-        height: 48
+        x: 46
+        y: 180
+        width: 8
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 9d819c6d3ff3bde4a9fb68ce27ee4477
-      internalID: -679632009
+      spriteID: cd4a6662575a8c340800000000000000
+      internalID: 4884335718457320668
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: testtt_5
+      name: sword-attack1_10
       rect:
         serializedVersion: 2
-        x: 240
-        y: 432
-        width: 48
-        height: 48
+        x: 161
+        y: 179
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 4b876b91d5ac72143ad803dcdeafdab8
-      internalID: -1121467206
+      spriteID: 2cfbbbf7af7a8dff0800000000000000
+      internalID: -11074304741752894
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: testtt_13
+      name: sword-attack1_11
       rect:
         serializedVersion: 2
-        x: 192
-        y: 384
-        width: 48
-        height: 48
+        x: 295
+        y: 188
+        width: 9
+        height: 9
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 32c99dd0adc6a6f41836ecb4046e4321
-      internalID: -1256746131
+      spriteID: b9d6c2cb8839e9720800000000000000
+      internalID: 2854881429281336731
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: testtt_14
+      name: sword-attack1_12
       rect:
         serializedVersion: 2
-        x: 240
-        y: 384
-        width: 48
-        height: 48
+        x: 302
+        y: 190
+        width: 51
+        height: 20
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 3ab003e718bfcf9448da73eb1810d46e
-      internalID: -1130885885
+      spriteID: 3ba7934d35ffdec70800000000000000
+      internalID: 9002131965691394739
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: testtt_15
+      name: sword-attack1_13
       rect:
         serializedVersion: 2
-        x: 288
-        y: 384
-        width: 48
-        height: 48
+        x: 461
+        y: 177
+        width: 26
+        height: 25
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: e8cc5c5e7fc1e3843a1959dd24d6d3df
-      internalID: -1555535276
+      spriteID: d3354b5f3d29d4540800000000000000
+      internalID: 4993809000881738557
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: testtt_16
+      name: sword-attack1_14
       rect:
         serializedVersion: 2
-        x: 0
-        y: 336
-        width: 48
-        height: 48
+        x: 547
+        y: 190
+        width: 51
+        height: 20
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 5f9841cd543c4734dba51b4d443b45fb
-      internalID: -504864255
+      spriteID: ff283e07a56e73080800000000000000
+      internalID: -9207637637020286209
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: testtt_17
+      name: sword-attack1_15
       rect:
         serializedVersion: 2
-        x: 48
-        y: 336
-        width: 48
-        height: 48
+        x: 596
+        y: 188
+        width: 9
+        height: 9
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 5498581a2af45b44f934f7312bbd431e
-      internalID: -1248186422
+      spriteID: 7039df880545e0400800000000000000
+      internalID: 292263730698097415
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: testtt_18
+      name: sword-attack1_16
       rect:
         serializedVersion: 2
-        x: 96
-        y: 336
-        width: 48
-        height: 48
+        x: 668
+        y: 176
+        width: 26
+        height: 25
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 0983c8b17c7e1b3428b5db460eb0513b
-      internalID: 1719449845
+      spriteID: 41e4175d52d6272c0800000000000000
+      internalID: -4435362673744327148
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: testtt_19
+      name: sword-attack1_17
       rect:
         serializedVersion: 2
-        x: 144
-        y: 336
-        width: 48
-        height: 48
+        x: 174
+        y: 172
+        width: 6
+        height: 7
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 400fe28603fb5324c9c2661ef37fe89f
-      internalID: 1731860663
+      spriteID: 6019372783d8526d0800000000000000
+      internalID: -3015849101876817658
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: testtt_20
+      name: sword-attack1_18
       rect:
         serializedVersion: 2
-        x: 192
-        y: 336
-        width: 48
-        height: 48
+        x: 44
+        y: 31
+        width: 51
+        height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 6e719853fb2d39043b214ce09b76b5c7
-      internalID: 414505391
+      spriteID: 803aac4c6cd17b010800000000000000
+      internalID: 1204464164887241480
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: testtt_21
+      name: sword-attack1_19
       rect:
         serializedVersion: 2
-        x: 0
-        y: 288
+        x: 173
+        y: 31
         width: 48
-        height: 48
+        height: 76
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 181ea3f01e774fe48b5f5140151e8e03
-      internalID: 302289445
+      spriteID: aaba8d89cbf8ef870800000000000000
+      internalID: 8718563968816819114
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: testtt_22
+      name: sword-attack1_20
       rect:
         serializedVersion: 2
-        x: 48
-        y: 288
-        width: 48
-        height: 48
+        x: 292
+        y: 31
+        width: 52
+        height: 78
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 9084b25078758674eb00f91e4910c792
-      internalID: -1167600528
+      spriteID: 0072315cb794b0da0800000000000000
+      internalID: -5977603284468029696
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: testtt_23
+      name: sword-attack1_21
       rect:
         serializedVersion: 2
-        x: 96
-        y: 288
+        x: 433
+        y: 20
         width: 48
-        height: 48
+        height: 74
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: f8ff2af0334a2d349b9c58662fed8e6b
-      internalID: -1289359481
+      spriteID: d3048115009820490800000000000000
+      internalID: -7781506571689246659
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: testtt_24
+      name: sword-attack1_22
       rect:
         serializedVersion: 2
-        x: 144
-        y: 288
-        width: 48
-        height: 48
+        x: 544
+        y: 31
+        width: 56
+        height: 66
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: e4bd1ed96ab90f141a3b7d21a3987774
-      internalID: -936949689
+      spriteID: df1a2d35251a669a0800000000000000
+      internalID: -6240122858709540355
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: testtt_25
+      name: sword-attack1_23
       rect:
         serializedVersion: 2
-        x: 192
-        y: 288
-        width: 48
-        height: 48
+        x: 673
+        y: 32
+        width: 97
+        height: 86
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 321ec8d8b371ac843930a913fffd6976
-      internalID: 1711131436
+      spriteID: 1a1d279ecf36c8950800000000000000
+      internalID: 6452642304014602657
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: testtt_26
+      name: sword-attack1_24
       rect:
         serializedVersion: 2
-        x: 0
-        y: 240
-        width: 48
-        height: 48
+        x: 813
+        y: 31
+        width: 54
+        height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 212c27cdad409a14594f3fc651853e57
-      internalID: 579822132
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: testtt_27
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 240
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c01e92a67e3f12948ad85bb8e0599349
-      internalID: -2125325403
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: testtt_28
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 240
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4e1086080de10f047963a048c2ada8dd
-      internalID: 746985771
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: testtt_29
-      rect:
-        serializedVersion: 2
-        x: 144
-        y: 240
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 14530c6662a711f478b6f3ada1d9ff4e
-      internalID: -1013979438
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: testtt_30
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 240
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c073d9a7909c22848a03fe946cf16a6b
-      internalID: -1945034205
+      spriteID: 0c28ec449f69c2b50800000000000000
+      internalID: 6569791953772118720
       vertices: []
       indices: 
       edges: []
@@ -757,7 +738,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 24f6f611b3f31334e9ea645999e5775b
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -765,41 +746,33 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":48.0,"y":48.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      testtt_0: 7741060602714467792
-      testtt_1: -5365956597076293357
-      testtt_10: 667143514
-      testtt_11: 1080516192
-      testtt_12: -739938977
-      testtt_13: -1256746131
-      testtt_14: -1130885885
-      testtt_15: -1555535276
-      testtt_16: -504864255
-      testtt_17: -1248186422
-      testtt_18: 1719449845
-      testtt_19: 1731860663
-      testtt_2: -1699018134
-      testtt_20: 414505391
-      testtt_21: 302289445
-      testtt_22: -1167600528
-      testtt_23: -1289359481
-      testtt_24: -936949689
-      testtt_25: 1711131436
-      testtt_26: 579822132
-      testtt_27: -2125325403
-      testtt_28: 746985771
-      testtt_29: -1013979438
-      testtt_3: -1011706010
-      testtt_30: -1945034205
-      testtt_4: -1125246140
-      testtt_5: -1121467206
-      testtt_6: -1850348677
-      testtt_7: 156900070
-      testtt_8: -679632009
-      testtt_9: 1246880312
+      sword-attack1_0: -1950377815657158734
+      sword-attack1_1: 863190268997455728
+      sword-attack1_10: -11074304741752894
+      sword-attack1_11: 2854881429281336731
+      sword-attack1_12: 9002131965691394739
+      sword-attack1_13: 4993809000881738557
+      sword-attack1_14: -9207637637020286209
+      sword-attack1_15: 292263730698097415
+      sword-attack1_16: -4435362673744327148
+      sword-attack1_17: -3015849101876817658
+      sword-attack1_18: 1204464164887241480
+      sword-attack1_19: 8718563968816819114
+      sword-attack1_2: -4341414740406646344
+      sword-attack1_20: -5977603284468029696
+      sword-attack1_21: -7781506571689246659
+      sword-attack1_22: -6240122858709540355
+      sword-attack1_23: 6452642304014602657
+      sword-attack1_24: 6569791953772118720
+      sword-attack1_3: 5031458159533843565
+      sword-attack1_4: -2741514858508055475
+      sword-attack1_5: -5168220110368315583
+      sword-attack1_6: 7653323459508473562
+      sword-attack1_7: 8521530170170947299
+      sword-attack1_8: -1487709179681355471
+      sword-attack1_9: 4884335718457320668
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
