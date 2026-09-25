@@ -30,6 +30,10 @@ public class ItemData : ScriptableObject
     public float weight;
     public int maxStack = 1; // >1 cho consumable/material
 
+    [Header("Weapon Animation")]
+    public RuntimeAnimatorController weaponAnimatorController;
+    public GameObject slashEffectPrefab;
+
     public Color GetRarityColor()
     {
         return rarity switch
