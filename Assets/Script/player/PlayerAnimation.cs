@@ -9,6 +9,13 @@ public class PlayerAnimation : MonoBehaviour
     [HideInInspector] public bool isRunning = true;
     private bool flipLocked = false; // khi đang attack, giữ nguyên flip
 
+    static readonly int HashIsMoving = Animator.StringToHash("IsMoving");
+    static readonly int HashIsRunning = Animator.StringToHash("IsRunning");
+
+    private bool movementBoolLocked = false;
+    public void LockMovementBools() => movementBoolLocked = true;
+    public void UnlockMovementBools() => movementBoolLocked = false;
+
     public void LockFlip(bool flipRight)
     {
         flipLocked = true;
@@ -36,9 +43,15 @@ public class PlayerAnimation : MonoBehaviour
     public void SetMovement(Vector2 movement)
     {
         if (!IsAnimatorReady()) return;
-        if (flipLocked) return; // đang attack, không đổi flip
+        if (flipLocked) return;
 
         bool isMoving = movement != Vector2.zero;
+
+        if (!movementBoolLocked)
+        {
+            animator.SetBool(HashIsMoving, isMoving);
+            animator.SetBool(HashIsRunning, isRunning);
+        }
         if (isMoving)
         {
             if (!flipLocked) lastDirection = movement; // chỉ update khi không attack
