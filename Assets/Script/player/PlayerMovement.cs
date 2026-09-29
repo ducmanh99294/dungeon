@@ -6,6 +6,8 @@ public class PlayerMovement : MonoBehaviour
     public float walkSpeed = 3f;
     public float runSpeed = 6f;
     public bool IsRunning => isRunning;
+    public bool IsAiming { get; private set; }
+    private bool runBeforeAim;
 
     [Header("Toggle Key")]
     public KeyCode toggleKey = KeyCode.LeftShift; // đổi key tùy bạn
@@ -54,5 +56,14 @@ public class PlayerMovement : MonoBehaviour
         isRunning = false;
         playerAnimation.isRunning = false;
         Debug.Log("[Movement] Hết Energy — chuyển sang Walk");
+    }
+
+    public void SetAiming(bool v)
+    {
+        if (v == IsAiming) return;
+        IsAiming = v;
+        if (v) { runBeforeAim = isRunning; isRunning = false; }
+        else isRunning = runBeforeAim;
+        playerAnimation.isRunning = isRunning;
     }
 }

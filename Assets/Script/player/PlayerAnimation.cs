@@ -6,6 +6,9 @@ public class PlayerAnimation : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private Vector2 lastDirection = Vector2.down;
     public Vector2 LastDirection => lastDirection; // cho ComboAttackController đọc
+    private bool aiming;
+    private Vector2 aimDir = Vector2.down;
+
     [HideInInspector] public bool isRunning = true;
     private bool flipLocked = false; // khi đang attack, giữ nguyên flip
 
@@ -15,6 +18,7 @@ public class PlayerAnimation : MonoBehaviour
     private bool movementBoolLocked = false;
     public void LockMovementBools() => movementBoolLocked = true;
     public void UnlockMovementBools() => movementBoolLocked = false;
+    public void SetAiming(bool v, Vector2 dir) { aiming = v; aimDir = dir; }
 
     public void LockFlip(bool flipRight)
     {
@@ -44,6 +48,24 @@ public class PlayerAnimation : MonoBehaviour
     {
         if (!IsAnimatorReady()) return;
         if (flipLocked) return;
+
+        if (aiming) { PlayBow(movement != Vector2.zero); return; }
+
+        void PlayBow(bool moving)
+        {
+            string s = moving ? "bow-walk" : "bow-idle";
+            lastDirection = aimDir;
+            if (Mathf.Abs(aimDir.x) >= Mathf.Abs(aimDir.y))
+            {
+                spriteRenderer.flipX = aimDir.x > 0;
+                PlayAnimation(s + "-l");
+            }
+            else
+            {
+                spriteRenderer.flipX = false;
+                PlayAnimation(aimDir.y > 0 ? s + "-u" : s + "-d");
+            }
+        }
 
         bool isMoving = movement != Vector2.zero;
 
@@ -94,4 +116,6 @@ public class PlayerAnimation : MonoBehaviour
     {
         return animator != null && animator.runtimeAnimatorController != null;
     }
+
+    
 }

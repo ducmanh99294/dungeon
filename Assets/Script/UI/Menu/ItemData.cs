@@ -22,6 +22,7 @@ public class ItemData : ScriptableObject
     public int defenseBonus;
     public int hpBonus;
     public int manaBonus;
+    public enum WeaponKind { None, Sword, Bow, Axe, Sprite, shilde }
 
     [Header("Skill Book (chỉ dùng nếu là sách skill)")]
     public bool isSkillBook = false;
@@ -33,6 +34,7 @@ public class ItemData : ScriptableObject
     [Header("Weapon Animation")]
     public RuntimeAnimatorController weaponAnimatorController;
     public GameObject slashEffectPrefab;
+    public WeaponKind weaponKind = WeaponKind.None;
 
     public Color GetRarityColor()
     {
