@@ -9,6 +9,7 @@ public class ComboAttackController : MonoBehaviour
     public int maxCombo = 3;
     public float attackCooldown = 0.1f;
     public float comboWindowDuration = 0.5f;
+    public bool IsAttacking => isAttacking;
 
     [Header("References")]
     public GameObject swordHitboxObject;
@@ -43,267 +44,293 @@ public class ComboAttackController : MonoBehaviour
             Debug.LogError("[Combo] Animator chưa gắn Controller!", this);
     }
 
-    void Update()
+void Update()
+{
+    if (Input.GetButtonDown("Fire1"))
     {
-        if (Input.GetButtonDown("Fire1"))
+        Debug.Log(
+            $"[COMBO INPUT] isAttacking={isAttacking}, comboStep={comboStep}, inputQueued={inputQueued}"
+        );
+
+        if (!isAttacking)
         {
-            if (!isAttacking)
-                StartCombo();
-            else if (comboWindowOpen && comboStep < maxCombo)
-                inputQueued = true;
+            StartCombo();
+        }
+        else if (comboStep < maxCombo)
+        {
+            inputQueued = true;
+
+            Debug.Log(
+                $"[COMBO QUEUED] comboStep={comboStep}"
+            );
         }
     }
-
+}
     public void StartCombo()
     {
         if (comboRoutine != null) StopCoroutine(comboRoutine);
         comboStep = 1;
         comboRoutine = StartCoroutine(ComboRoutine());
     }
-    IEnumerator ComboRoutine()
+IEnumerator ComboRoutine()
+{
+    isAttacking = true;
+
+    // =========================
+    // 1. Snapshot direction
+    // =========================
+
+    int dir = GetAttackDirection();
+
+    anim.SetInteger(HashDirection, dir);
+
+    if (weaponAnimator != null)
     {
-        isAttacking = true;
+        weaponAnimator.SetInteger(HashDirection, dir);
+    }
 
-         
-        // 1. Snapshot hướng tấn công
-         
+    if (playerAnimation != null)
+    {
+        playerAnimation.UnlockFlip();
+        playerAnimation.LockMovementBools();
+    }
 
-        int dir = GetAttackDirection();
-        Vector2 rawDir = GetRawDirection();
+    // =========================
+    // 2. Lock player direction
+    // =========================
 
-        anim.SetInteger(HashDirection, dir);
+    Vector2 rawDir = GetRawDirection();
 
-        if (playerAnimation != null)
-        {
-            // Cho phép cập nhật hướng trước khi khóa
-            playerAnimation.UnlockFlip();
+    if (playerAnimation != null)
+    {
+        playerAnimation.LockFlip(
+            dir == 0 && rawDir.x > 0
+        );
+    }
 
-            // Khóa movement bool trong toàn bộ combo
-            playerAnimation.LockMovementBools();
-        }
+    // =========================
+    // 3. Snapshot movement
+    // =========================
 
-        // Xoay weapon theo hướng attack
-        RotateWeaponPivot(dir, rawDir);
+    bool isMoving = GetIsMoving();
 
-        // Khóa hướng nhân vật trong lúc attack
-        if (playerAnimation != null)
-        {
-            playerAnimation.LockFlip(
-                dir == 0 && rawDir.x > 0
-            );
-        }
+    bool isRunning = isMoving &&
+        playerMovement != null &&
+        playerMovement.IsRunning;
 
-         
-        // 2. Snapshot movement
-         
+    anim.SetBool(HashIsMoving, isMoving);
+    anim.SetBool(HashIsRunning, isRunning);
 
-        bool isMoving = GetIsMoving();
+    if (weaponAnimator != null)
+    {
+        weaponAnimator.SetBool(HashIsMoving, isMoving);
+        weaponAnimator.SetBool(HashIsRunning, isRunning);
+        weaponAnimator.SetInteger(HashDirection, dir);
+    }
 
-        bool isRunning =
-            playerMovement != null &&
-            playerMovement.IsRunning;
+    // =========================
+    // 4. Combo
+    // =========================
 
-        anim.SetBool(HashIsMoving, isMoving);
-        anim.SetBool(HashIsRunning, isRunning);
+    while (comboStep <= maxCombo)
+    {
+        inputQueued = false;
 
-        if (weaponAnimator != null)
-        {
-            weaponAnimator.SetBool(HashIsMoving, isMoving);
-            weaponAnimator.SetBool(HashIsRunning, isRunning);
-        }
-
-         
-        // 3. Combo
-         
-
-        while (comboStep <= maxCombo)
-        {
-            inputQueued = false;
-            comboWindowOpen = false;
-
-            // Set combo step
-            anim.SetInteger(
-                HashComboStep,
-                comboStep
-            );
-
-            anim.SetTrigger(HashAttack);
-
-            // Weapon animator
-            if (weaponAnimator != null)
-            {
-                weaponAnimator.SetInteger(
-                    HashComboStep,
-                    comboStep
-                );
-
-                weaponAnimator.SetTrigger(HashAttack);
-            }
-
-             
-            // Chờ Attack state
-             
-
-            yield return null;
-
-            float waited = 0f;
-
-            while (
-                !anim.GetCurrentAnimatorStateInfo(0).IsTag("Attack") &&
-                waited < 0.25f
-            )
-            {
-                waited += Time.deltaTime;
-                yield return null;
-            }
-
-            // Attack không start
-            if (!anim.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
-            {
-                Debug.LogWarning(
-                    "Attack animation did not start."
-                );
-
-                break;
-            }
-
-            float clipLength =
-                anim.GetCurrentAnimatorStateInfo(0).length;
-
-             
-            // Attack cooldown
-             
-
-            yield return new WaitForSeconds(
-                Mathf.Min(
-                    attackCooldown,
-                    clipLength * 0.3f
-                )
-            );
-
-             
-            // Combo window
-         
-
-            comboWindowOpen = true;
-
-            float windowElapsed = 0f;
-
-            while (
-                windowElapsed < comboWindowDuration
-            )
-            {
-                if (
-                    inputQueued &&
-                    comboStep < maxCombo
-                )
-                {
-                    break;
-                }
-
-                windowElapsed += Time.deltaTime;
-
-                yield return null;
-            }
-
-            comboWindowOpen = false;
-
-             
-            // Chờ animation kết thúc
-             
-
-            if (
-                !inputQueued ||
-                comboStep >= maxCombo
-            )
-            {
-                float remaining =
-                    clipLength -
-                    attackCooldown -
-                    comboWindowDuration;
-
-                if (remaining > 0f)
-                {
-                    yield return new WaitForSeconds(
-                        remaining
-                    );
-                }
-            }
-
-             
-            // Sang combo tiếp theo
-             
-
-            if (
-                inputQueued &&
-                comboStep < maxCombo
-            )
-            {
-                comboStep++;
-            }
-            else
-            {
-                break;
-            }
-        }
-
-         
-        // 4. Kết thúc combo
-         
-
-        yield return new WaitForSeconds(0.15f);
+        // -------------------------
+        // Set parameters
+        // -------------------------
 
         anim.SetInteger(
             HashComboStep,
-            0
+            comboStep
+        );
+
+        anim.SetInteger(
+            HashDirection,
+            dir
         );
 
         if (weaponAnimator != null)
         {
             weaponAnimator.SetInteger(
                 HashComboStep,
-                0
+                comboStep
+            );
+
+            weaponAnimator.SetInteger(
+                HashDirection,
+                dir
             );
         }
 
-        anim.SetBool(
-            HashIsMoving,
-            false
+        Debug.Log(
+            $"[ATTACK START] ComboStep={comboStep}, Dir={dir}"
         );
 
-        anim.SetBool(
-            HashIsRunning,
-            false
-        );
+        // -------------------------
+        // Trigger Player
+        // -------------------------
+
+        anim.SetTrigger(HashAttack);
+
+        // -------------------------
+        // Trigger Sword
+        // -------------------------
 
         if (weaponAnimator != null)
         {
-            weaponAnimator.SetBool(
-                HashIsMoving,
-                false
-            );
-
-            weaponAnimator.SetBool(
-                HashIsRunning,
-                false
-            );
+            weaponAnimator.SetTrigger(HashAttack);
         }
 
-         
-        // 5. Reset state
-         
+        // -------------------------
+        // Chờ Player vào Attack
+        // -------------------------
 
-        isAttacking = false;
-        comboStep = 0;
+        yield return null;
 
-        DisableHitbox();
+        float waited = 0f;
 
-        if (playerAnimation != null)
+        while (
+            !anim.GetCurrentAnimatorStateInfo(0).IsTag("Attack") &&
+            waited < 0.5f
+        )
         {
-            playerAnimation.UnlockFlip();
-            playerAnimation.UnlockMovementBools();
+            waited += Time.deltaTime;
+            yield return null;
+        }
+
+        if (!anim.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
+        {
+            Debug.LogWarning(
+                "[COMBO] Attack state không bắt đầu!"
+            );
+
+            break;
+        }
+
+        // =========================
+        // Combo input window
+        // =========================
+
+        comboWindowOpen = true;
+
+        // Chờ một khoảng ngắn trước khi cho phép
+        // chuyển combo
+        yield return new WaitForSeconds(
+            attackCooldown
+        );
+
+        comboWindowOpen = false;
+
+        // =========================
+        // Chờ animation hiện tại kết thúc
+        // =========================
+
+        while (true)
+        {
+            AnimatorStateInfo state =
+                anim.GetCurrentAnimatorStateInfo(0);
+
+            if (!state.IsTag("Attack"))
+                break;
+
+            yield return null;
+        }
+
+        Debug.Log(
+            $"[ATTACK END] ComboStep={comboStep}, queued={inputQueued}"
+        );
+
+        // =========================
+        // Sang combo tiếp theo
+        // =========================
+
+        if (
+            inputQueued &&
+            comboStep < maxCombo
+        )
+        {
+            Debug.Log(
+                $"[COMBO INCREASE] {comboStep} -> {comboStep + 1}"
+            );
+
+            comboStep++;
+        }
+        else
+        {
+            Debug.Log(
+                $"[COMBO FINISH] Step={comboStep}"
+            );
+
+            break;
         }
     }
+
+    // =========================
+    // End combo
+    // =========================
+
+    anim.ResetTrigger(HashAttack);
+
+    if (weaponAnimator != null)
+    {
+        weaponAnimator.ResetTrigger(HashAttack);
+    }
+
+    anim.SetInteger(
+        HashComboStep,
+        0
+    );
+
+    if (weaponAnimator != null)
+    {
+        weaponAnimator.SetInteger(
+            HashComboStep,
+            0
+        );
+    }
+
+    // Lấy movement thật
+    bool movingAfterAttack = GetIsMoving();
+
+    bool runningAfterAttack =
+        playerMovement != null &&
+        playerMovement.IsRunning;
+
+    anim.SetBool(
+        HashIsMoving,
+        movingAfterAttack
+    );
+
+    anim.SetBool(
+        HashIsRunning,
+        runningAfterAttack
+    );
+
+    if (weaponAnimator != null)
+    {
+        weaponAnimator.SetBool(
+            HashIsMoving,
+            movingAfterAttack
+        );
+
+        weaponAnimator.SetBool(
+            HashIsRunning,
+            runningAfterAttack
+        );
+    }
+
+    isAttacking = false;
+    comboStep = 0;
+
+    DisableHitbox();
+
+    if (playerAnimation != null)
+    {
+        playerAnimation.UnlockFlip();
+        playerAnimation.UnlockMovementBools();
+    }
+}
 
     void RotateWeaponPivot(int dir, Vector2 rawDir)
     {
@@ -346,7 +373,6 @@ public class ComboAttackController : MonoBehaviour
 
     public void OnAttackAnimEnd()
     {
-        inputQueued = false;
         comboWindowOpen = false;
     }
 }

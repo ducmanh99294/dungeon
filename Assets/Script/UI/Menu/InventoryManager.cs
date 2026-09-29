@@ -39,7 +39,8 @@ public class InventoryManager : MonoBehaviour
     private List<ItemSlot> slots = new List<ItemSlot>();
     private float currentWeight = 0f;
     private bool isOpen = false;
-
+    private ItemData equippedWeapon;
+    public ItemData EquippedWeapon => equippedWeapon;
     void Awake()
     {
         if (Instance == null) Instance = this;
@@ -125,6 +126,12 @@ public class InventoryManager : MonoBehaviour
     // ── XÓA ITEM ────────────────────────────────
     public void RemoveItem(ItemStack stack)
     {
+        if (equippedWeapon == stack.data && !items.Exists(i => i != stack && i.data == stack.data))
+        {
+            WeaponController.Instance?.Equip(null);
+            equippedWeapon = null;
+        }
+
         currentWeight -= stack.data.weight * stack.amount;
         items.Remove(stack);
         RefreshGrid();
@@ -185,6 +192,11 @@ public class InventoryManager : MonoBehaviour
 
         var item = selected.data;
 
+        if (item.type == ItemType.Weapon)
+        {
+            ToggleEquip(item);
+            return;
+        }
         // Nếu là Skill Book → trigger gacha
         if (item.isSkillBook && item.skillData != null)
         {
@@ -227,6 +239,19 @@ public class InventoryManager : MonoBehaviour
     {
         gold += amount;
         UpdateStatsUI();
+    }
+    // chance weapon
+    void ToggleEquip(ItemData item)
+    {
+        var wc = WeaponController.Instance;
+        if (wc == null) return;
+
+        bool unequip = equippedWeapon == item;
+        if (wc.Equip(unequip ? null : item))
+        {
+            equippedWeapon = unequip ? null : item;
+            RefreshGrid();
+        }
     }
 }
 
