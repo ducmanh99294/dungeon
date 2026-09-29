@@ -2,6 +2,7 @@
 using System.Collections;
 //using System.Diagnostics;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class ComboAttackController : MonoBehaviour
 {
@@ -44,28 +45,17 @@ public class ComboAttackController : MonoBehaviour
             Debug.LogError("[Combo] Animator chưa gắn Controller!", this);
     }
 
-void Update()
-{
-    if (Input.GetButtonDown("Fire1"))
+    void Update()
     {
-        Debug.Log(
-            $"[COMBO INPUT] isAttacking={isAttacking}, comboStep={comboStep}, inputQueued={inputQueued}"
-        );
-
-        if (!isAttacking)
+            if (Time.timeScale == 0f) return;
+            if (Input.GetButtonDown("Fire1"))
         {
-            StartCombo();
-        }
-        else if (comboStep < maxCombo)
-        {
-            inputQueued = true;
+            if (EventSystem.current && EventSystem.current.IsPointerOverGameObject()) return;
+            if (!isAttacking) StartCombo();
+            else if (comboStep < maxCombo) inputQueued = true;
 
-            Debug.Log(
-                $"[COMBO QUEUED] comboStep={comboStep}"
-            );
         }
     }
-}
     public void StartCombo()
     {
         if (comboRoutine != null) StopCoroutine(comboRoutine);

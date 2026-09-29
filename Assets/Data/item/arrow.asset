@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f904d3173a35fc84d8b0a1d76b0229e6, type: 3}
-  m_Name: Weapon
+  m_Name: arrow
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
-  itemName: 
-  icon: {fileID: 0}
+  itemName: bow
+  icon: {fileID: 8259935155888124541, guid: 5c11ef3b4b68c4a448cf741fbfac921b, type: 3}
   type: 0
   rarity: 0
   description: 
@@ -26,5 +26,6 @@ MonoBehaviour:
   sellValue: 0
   weight: 0
   maxStack: 1
-  weaponAnimatorController: {fileID: 0}
+  weaponAnimatorController: {fileID: 9100000, guid: 601dd7fd04cfbfd4c8eb90cae791d56b, type: 2}
   slashEffectPrefab: {fileID: 0}
+  weaponKind: 2
