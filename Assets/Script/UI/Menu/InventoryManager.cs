@@ -50,7 +50,7 @@ public class InventoryManager : MonoBehaviour
     void Start()
     {
         btnUse.onClick.AddListener(OnUseButton);
-
+        equippedWeapon = WeaponController.Instance?.Current;
         // Xóa slot cũ nếu có
         foreach (Transform child in itemGridParent)
             Destroy(child.gameObject);
