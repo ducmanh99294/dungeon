@@ -1,0 +1,624 @@
+fileFormatVersion: 2
+guid: 2f2162684b162b74f968493661db4441
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7334134737812436311
+    second: arrow-walk-attack_0
+  - first:
+      213: -6024011502803436936
+    second: arrow-walk-attack_1
+  - first:
+      213: 8580340089734528019
+    second: arrow-walk-attack_2
+  - first:
+      213: -1296941535055345434
+    second: arrow-walk-attack_3
+  - first:
+      213: 1974162505237390462
+    second: arrow-walk-attack_4
+  - first:
+      213: -1491835245317429620
+    second: arrow-walk-attack_5
+  - first:
+      213: 7621366227831266339
+    second: arrow-walk-attack_6
+  - first:
+      213: -6021027584559782180
+    second: arrow-walk-attack_7
+  - first:
+      213: -5041121859337746047
+    second: arrow-walk-attack_8
+  - first:
+      213: 8927185878177329907
+    second: arrow-walk-attack_9
+  - first:
+      213: 3117515970959694182
+    second: arrow-walk-attack_10
+  - first:
+      213: -2800585895757217527
+    second: arrow-walk-attack_11
+  - first:
+      213: 9189715771130210006
+    second: arrow-walk-attack_12
+  - first:
+      213: -1689382354641491641
+    second: arrow-walk-attack_13
+  - first:
+      213: -8623477719301042327
+    second: arrow-walk-attack_14
+  - first:
+      213: 1503072892943710116
+    second: arrow-walk-attack_15
+  - first:
+      213: -7837704450348499061
+    second: arrow-walk-attack_16
+  - first:
+      213: 8769015789138397829
+    second: arrow-walk-attack_17
+  - first:
+      213: 136492683841734686
+    second: arrow-walk-attack_18
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: arrow-walk-attack_0
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 287
+        width: 45
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 755b926afa418c560800000000000000
+      internalID: 7334134737812436311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arrow-walk-attack_1
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 287
+        width: 41
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87ab88c6479666ca0800000000000000
+      internalID: -6024011502803436936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arrow-walk-attack_2
+      rect:
+        serializedVersion: 2
+        x: 297
+        y: 287
+        width: 47
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31c7bacd9dd731770800000000000000
+      internalID: 8580340089734528019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arrow-walk-attack_3
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 287
+        width: 47
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e8839c9b86500ee0800000000000000
+      internalID: -1296941535055345434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arrow-walk-attack_4
+      rect:
+        serializedVersion: 2
+        x: 553
+        y: 287
+        width: 47
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e74e195c652a56b10800000000000000
+      internalID: 1974162505237390462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arrow-walk-attack_5
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 156
+        width: 40
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c86627b9fbfeb4be0800000000000000
+      internalID: -1491835245317429620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arrow-walk-attack_6
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 168
+        width: 37
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32c9a09543884c960800000000000000
+      internalID: 7621366227831266339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arrow-walk-attack_7
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 158
+        width: 14
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd66c770053017ca0800000000000000
+      internalID: -6021027584559782180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arrow-walk-attack_8
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 168
+        width: 37
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18987b0c0665a0ab0800000000000000
+      internalID: -5041121859337746047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arrow-walk-attack_9
+      rect:
+        serializedVersion: 2
+        x: 429
+        y: 168
+        width: 37
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f2b4a8024cb3eb70800000000000000
+      internalID: 8927185878177329907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arrow-walk-attack_10
+      rect:
+        serializedVersion: 2
+        x: 557
+        y: 168
+        width: 37
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 669d8ae1244a34b20800000000000000
+      internalID: 3117515970959694182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arrow-walk-attack_11
+      rect:
+        serializedVersion: 2
+        x: 577
+        y: 158
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9010c6847f15229d0800000000000000
+      internalID: -2800585895757217527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arrow-walk-attack_12
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 159
+        width: 12
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d6650dfdcd688f70800000000000000
+      internalID: 9189715771130210006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arrow-walk-attack_13
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 157
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 749e7cdf2bb1e88e0800000000000000
+      internalID: -1689382354641491641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arrow-walk-attack_14
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 31
+        width: 38
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96fc09414b0435880800000000000000
+      internalID: -8623477719301042327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arrow-walk-attack_15
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 31
+        width: 38
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a7bd6f15dcfbd410800000000000000
+      internalID: 1503072892943710116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arrow-walk-attack_16
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 31
+        width: 38
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8fba7e0451ea3390800000000000000
+      internalID: -7837704450348499061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arrow-walk-attack_17
+      rect:
+        serializedVersion: 2
+        x: 428
+        y: 31
+        width: 38
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58ac265666dc1b970800000000000000
+      internalID: 8769015789138397829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arrow-walk-attack_18
+      rect:
+        serializedVersion: 2
+        x: 557
+        y: 31
+        width: 39
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1883de6f5be4e100800000000000000
+      internalID: 136492683841734686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      arrow-walk-attack_0: 7334134737812436311
+      arrow-walk-attack_1: -6024011502803436936
+      arrow-walk-attack_10: 3117515970959694182
+      arrow-walk-attack_11: -2800585895757217527
+      arrow-walk-attack_12: 9189715771130210006
+      arrow-walk-attack_13: -1689382354641491641
+      arrow-walk-attack_14: -8623477719301042327
+      arrow-walk-attack_15: 1503072892943710116
+      arrow-walk-attack_16: -7837704450348499061
+      arrow-walk-attack_17: 8769015789138397829
+      arrow-walk-attack_18: 136492683841734686
+      arrow-walk-attack_2: 8580340089734528019
+      arrow-walk-attack_3: -1296941535055345434
+      arrow-walk-attack_4: 1974162505237390462
+      arrow-walk-attack_5: -1491835245317429620
+      arrow-walk-attack_6: 7621366227831266339
+      arrow-walk-attack_7: -6021027584559782180
+      arrow-walk-attack_8: -5041121859337746047
+      arrow-walk-attack_9: 8927185878177329907
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,1526 @@
+fileFormatVersion: 2
+guid: eb3f1d9a857bb8d4882f490d2a5d58ff
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7938721420703111518
+    second: trang tri_0
+  - first:
+      213: 5446192765232148223
+    second: trang tri_1
+  - first:
+      213: 6298991909682459711
+    second: trang tri_2
+  - first:
+      213: 505211603704519750
+    second: trang tri_3
+  - first:
+      213: 2676363044679948517
+    second: trang tri_4
+  - first:
+      213: 6321557032917598849
+    second: trang tri_5
+  - first:
+      213: -1699915563560055049
+    second: trang tri_6
+  - first:
+      213: 3706012667420003014
+    second: trang tri_7
+  - first:
+      213: 3392871100024601686
+    second: trang tri_8
+  - first:
+      213: -6019468410279629022
+    second: trang tri_9
+  - first:
+      213: -5353630695514877331
+    second: trang tri_10
+  - first:
+      213: 6111377629886458736
+    second: trang tri_11
+  - first:
+      213: -5368571550226417179
+    second: trang tri_12
+  - first:
+      213: 8671997421983534998
+    second: trang tri_13
+  - first:
+      213: -6536645473369471263
+    second: trang tri_14
+  - first:
+      213: 3716297635635811842
+    second: trang tri_15
+  - first:
+      213: -724049792478710855
+    second: trang tri_16
+  - first:
+      213: -1249440620397512765
+    second: trang tri_17
+  - first:
+      213: 4647832548420378997
+    second: trang tri_18
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: trang tri_0
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 1869
+        width: 214
+        height: 158
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a6e434ddeef3d190800000000000000
+      internalID: -7938721420703111518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trang tri_1
+      rect:
+        serializedVersion: 2
+        x: 413
+        y: 1765
+        width: 377
+        height: 214
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffee6fdf673c49b40800000000000000
+      internalID: 5446192765232148223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trang tri_2
+      rect:
+        serializedVersion: 2
+        x: 869
+        y: 1753
+        width: 232
+        height: 213
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f34bea3b4c38a6750800000000000000
+      internalID: 6298991909682459711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trang tri_3
+      rect:
+        serializedVersion: 2
+        x: 1238
+        y: 1887
+        width: 64
+        height: 112
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64c963fd64fd20700800000000000000
+      internalID: 505211603704519750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trang tri_4
+      rect:
+        serializedVersion: 2
+        x: 1455
+        y: 1900
+        width: 38
+        height: 87
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e89128520a542520800000000000000
+      internalID: 2676363044679948517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trang tri_5
+      rect:
+        serializedVersion: 2
+        x: 1606
+        y: 1891
+        width: 80
+        height: 108
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1820d6ed0aeaab750800000000000000
+      internalID: 6321557032917598849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trang tri_6
+      rect:
+        serializedVersion: 2
+        x: 1808
+        y: 1903
+        width: 68
+        height: 62
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7fe48dd2dcfa868e0800000000000000
+      internalID: -1699915563560055049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trang tri_7
+      rect:
+        serializedVersion: 2
+        x: 1964
+        y: 1862
+        width: 164
+        height: 167
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6cacaaeb2e66e6330800000000000000
+      internalID: 3706012667420003014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trang tri_8
+      rect:
+        serializedVersion: 2
+        x: 2200
+        y: 1744
+        width: 321
+        height: 229
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65cb7ad0a46e51f20800000000000000
+      internalID: 3392871100024601686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trang tri_9
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 1685
+        width: 151
+        height: 117
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22fe8949f5d867ca0800000000000000
+      internalID: -6019468410279629022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trang tri_10
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 1675
+        width: 168
+        height: 167
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6255374f3514b5b0800000000000000
+      internalID: -5353630695514877331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trang tri_11
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 1473
+        width: 164
+        height: 217
+      alignment: 9
+      pivot: {x: 0.50609756, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07ba6ad2399ffc450800000000000000
+      internalID: 6111377629886458736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trang tri_12
+      rect:
+        serializedVersion: 2
+        x: 612
+        y: 1473
+        width: 176
+        height: 220
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e97c757e900f75b0800000000000000
+      internalID: -5368571550226417179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trang tri_13
+      rect:
+        serializedVersion: 2
+        x: 802
+        y: 1473
+        width: 177
+        height: 218
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69f8e6685bf195870800000000000000
+      internalID: 8671997421983534998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trang tri_14
+      rect:
+        serializedVersion: 2
+        x: 1250
+        y: 1664
+        width: 250
+        height: 185
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e6c529139b2945a0800000000000000
+      internalID: -6536645473369471263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trang tri_15
+      rect:
+        serializedVersion: 2
+        x: 1639
+        y: 1666
+        width: 219
+        height: 183
+      alignment: 9
+      pivot: {x: 0.5022831, y: 0.32}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20652b38201f29330800000000000000
+      internalID: 3716297635635811842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trang tri_16
+      rect:
+        serializedVersion: 2
+        x: 1979
+        y: 1679
+        width: 125
+        height: 162
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b37c97cc88a3f5f0800000000000000
+      internalID: -724049792478710855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trang tri_17
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 1502
+        width: 109
+        height: 137
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c73345206819aee0800000000000000
+      internalID: -1249440620397512765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trang tri_18
+      rect:
+        serializedVersion: 2
+        x: 1011
+        y: 1370
+        width: 518
+        height: 181
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5716818d31b608040800000000000000
+      internalID: 4647832548420378997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trang tri_19
+      rect:
+        serializedVersion: 2
+        x: 1646
+        y: 1490
+        width: 230
+        height: 141
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2a7f2814d8548b4099b3295bf2fa772
+      internalID: -1371053212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trang tri_20
+      rect:
+        serializedVersion: 2
+        x: 1943
+        y: 1337
+        width: 208
+        height: 228
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb8d005be9c903f4b8fdd7365792ab9e
+      internalID: 265847320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trang tri_21
+      rect:
+        serializedVersion: 2
+        x: 2174
+        y: 1364
+        width: 416
+        height: 216
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2baf699c530c4804999aaab0b31a6928
+      internalID: -1420546535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trang tri_22
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 1283
+        width: 153
+        height: 210
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76e37a7b17dce874b8664747f21195d0
+      internalID: 470729626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trang tri_23
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 1292
+        width: 195
+        height: 130
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6f6e8c90571785438669bce607f1566
+      internalID: 1223031795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trang tri_24
+      rect:
+        serializedVersion: 2
+        x: 2192
+        y: 1105
+        width: 329
+        height: 216
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 521e98c16151a974c867c03ac94a69d3
+      internalID: 835406663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trang tri_25
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 1089
+        width: 876
+        height: 189
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7caf0980382959a4cb7b31daed83571c
+      internalID: 1290029674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trang tri_26
+      rect:
+        serializedVersion: 2
+        x: 1013
+        y: 1089
+        width: 315
+        height: 183
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1f910927038d6544901707754cf23b0
+      internalID: 605490575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trang tri_27
+      rect:
+        serializedVersion: 2
+        x: 1428
+        y: 1089
+        width: 268
+        height: 183
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbb7a0f6afefbc442a81c480afe3699c
+      internalID: -1135239397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trang tri_28
+      rect:
+        serializedVersion: 2
+        x: 1789
+        y: 1089
+        width: 145
+        height: 191
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf52e553150a8b147a750a0f8b0f91b5
+      internalID: -480993723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trang tri_29
+      rect:
+        serializedVersion: 2
+        x: 1947
+        y: 1089
+        width: 186
+        height: 191
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31ebdf30d6e1ff145855568a61b02125
+      internalID: -2135065987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trang tri_30
+      rect:
+        serializedVersion: 2
+        x: 1042
+        y: 706
+        width: 280
+        height: 254
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20f1caa68cd3992408de61ddb2034493
+      internalID: -534432247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trang tri_31
+      rect:
+        serializedVersion: 2
+        x: 1414
+        y: 934
+        width: 106
+        height: 125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96db948ff09072c4c95ea1a0c21cd5a8
+      internalID: -2015494118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trang tri_32
+      rect:
+        serializedVersion: 2
+        x: 1630
+        y: 911
+        width: 54
+        height: 167
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8639c46a76c77d44e8eb753b16b9c9e1
+      internalID: 355154024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trang tri_33
+      rect:
+        serializedVersion: 2
+        x: 1821
+        y: 799
+        width: 294
+        height: 211
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f618018c1f4eb541a0ba77fed1e9ace
+      internalID: 67505224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trang tri_34
+      rect:
+        serializedVersion: 2
+        x: 2182
+        y: 781
+        width: 288
+        height: 213
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47fac00b807f6694b836b2d670dd1913
+      internalID: -2055618420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trang tri_35
+      rect:
+        serializedVersion: 2
+        x: 1384
+        y: 631
+        width: 179
+        height: 226
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0b6d3b40ee00284fb6b4d445e69b123
+      internalID: 1745648487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trang tri_36
+      rect:
+        serializedVersion: 2
+        x: 1605
+        y: 738
+        width: 100
+        height: 115
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb546f8a91dbd9c49a95ee49bd7617c1
+      internalID: -956791040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trang tri_37
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 350
+        width: 504
+        height: 298
+      alignment: 9
+      pivot: {x: 0.48015875, y: 0.6107383}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f932636a97406d4197d37a8094f80fa
+      internalID: 2089204470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trang tri_38
+      rect:
+        serializedVersion: 2
+        x: 599
+        y: 320
+        width: 193
+        height: 233
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2716312}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2e7414034801fe42aab9e86eb752a1c
+      internalID: 484156963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trang tri_39
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 319
+        width: 145
+        height: 234
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e92ab109ca0d92347bfe5bd617542f5f
+      internalID: 2140959968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trang tri_40
+      rect:
+        serializedVersion: 2
+        x: 1067
+        y: 328
+        width: 222
+        height: 363
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de8d2ce3dddaa1b48a7c9893e90a0cd6
+      internalID: -2123975582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trang tri_41
+      rect:
+        serializedVersion: 2
+        x: 1608
+        y: 530
+        width: 82
+        height: 147
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02119033c2c8cfa4e84a8268af88d381
+      internalID: 1760314768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trang tri_42
+      rect:
+        serializedVersion: 2
+        x: 1821
+        y: 541
+        width: 67
+        height: 118
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b58d94f7d5ceb44a92d096c55c68fbd
+      internalID: 432266027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trang tri_43
+      rect:
+        serializedVersion: 2
+        x: 1974
+        y: 393
+        width: 132
+        height: 228
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60db309870581254fbcc7cfdaaa89d0d
+      internalID: -1851884376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trang tri_44
+      rect:
+        serializedVersion: 2
+        x: 2158
+        y: 397
+        width: 130
+        height: 224
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45aebf7a05aeb0a4f8b6beb60e5f2a6e
+      internalID: 888670319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trang tri_45
+      rect:
+        serializedVersion: 2
+        x: 2363
+        y: 411
+        width: 247
+        height: 215
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4b03c327caff6d4ea020b9c8215fece
+      internalID: 1292559162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trang tri_46
+      rect:
+        serializedVersion: 2
+        x: 1322
+        y: 170
+        width: 230
+        height: 328
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 754b6afe7a3bd1a48a5d484e7c765e2b
+      internalID: 1115107619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trang tri_47
+      rect:
+        serializedVersion: 2
+        x: 1608
+        y: 350
+        width: 106
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6ea0214dae63714eb8c5b4f38b76431
+      internalID: 2009454955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trang tri_49
+      rect:
+        serializedVersion: 2
+        x: 1824
+        y: 347
+        width: 54
+        height: 132
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4825edce510c62e4e9e9dd670165674b
+      internalID: 1887154695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trang tri_50
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 9
+        width: 266
+        height: 311
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36b9baa086860624fb3f099d08b1955e
+      internalID: 124400620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trang tri_51
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 6
+        width: 190
+        height: 292
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a331dd009f545245a37e9030b0638c0
+      internalID: 1930458632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trang tri_52
+      rect:
+        serializedVersion: 2
+        x: 713
+        y: 6
+        width: 256
+        height: 296
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c04f61206bae0dd4bbfa5d35f09bfad8
+      internalID: 1608662602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trang tri_53
+      rect:
+        serializedVersion: 2
+        x: 999
+        y: 35
+        width: 168
+        height: 257
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fd91b66f902bad49b2a6b7d354967de
+      internalID: -556669938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trang tri_56
+      rect:
+        serializedVersion: 2
+        x: 761
+        y: 614
+        width: 136
+        height: 475
+      alignment: 9
+      pivot: {x: 0.72794116, y: 0.5347368}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 493bab18cbeb28a45b8f4105ec939538
+      internalID: -2073237305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trang tri_57
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 712
+        width: 318
+        height: 233
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0a73b307e843854c892ffb189676c38
+      internalID: 762957967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trang tri_58
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 707
+        width: 145
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 253882ca2bf6c9c4492159a3eddd43aa
+      internalID: -983657502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trang tri_59
+      rect:
+        serializedVersion: 2
+        x: 632
+        y: 899
+        width: 70
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f0d1867499125446bf566da6c11d87a
+      internalID: 1618243202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trang tri_60
+      rect:
+        serializedVersion: 2
+        x: 634
+        y: 764
+        width: 66
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00a6d098ce6f2f84bac3c6d98869b0f3
+      internalID: 941947235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 2053157eea626bf429afe858700f7d04
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      trang tri_0: -7938721420703111518
+      trang tri_1: 5446192765232148223
+      trang tri_10: -5353630695514877331
+      trang tri_11: 6111377629886458736
+      trang tri_12: -5368571550226417179
+      trang tri_13: 8671997421983534998
+      trang tri_14: -6536645473369471263
+      trang tri_15: 3716297635635811842
+      trang tri_16: -724049792478710855
+      trang tri_17: -1249440620397512765
+      trang tri_18: 4647832548420378997
+      trang tri_19: -1371053212
+      trang tri_2: 6298991909682459711
+      trang tri_20: 265847320
+      trang tri_21: -1420546535
+      trang tri_22: 470729626
+      trang tri_23: 1223031795
+      trang tri_24: 835406663
+      trang tri_25: 1290029674
+      trang tri_26: 605490575
+      trang tri_27: -1135239397
+      trang tri_28: -480993723
+      trang tri_29: -2135065987
+      trang tri_3: 505211603704519750
+      trang tri_30: -534432247
+      trang tri_31: -2015494118
+      trang tri_32: 355154024
+      trang tri_33: 67505224
+      trang tri_34: -2055618420
+      trang tri_35: 1745648487
+      trang tri_36: -956791040
+      trang tri_37: 2089204470
+      trang tri_38: 484156963
+      trang tri_39: 2140959968
+      trang tri_4: 2676363044679948517
+      trang tri_40: -2123975582
+      trang tri_41: 1760314768
+      trang tri_42: 432266027
+      trang tri_43: -1851884376
+      trang tri_44: 888670319
+      trang tri_45: 1292559162
+      trang tri_46: 1115107619
+      trang tri_47: 2009454955
+      trang tri_48: 2041171157
+      trang tri_49: 1887154695
+      trang tri_5: 6321557032917598849
+      trang tri_50: 124400620
+      trang tri_51: 1930458632
+      trang tri_52: 1608662602
+      trang tri_53: -556669938
+      trang tri_54: 1769063009
+      trang tri_55: 233079018
+      trang tri_56: -2073237305
+      trang tri_57: 762957967
+      trang tri_58: -983657502
+      trang tri_59: 1618243202
+      trang tri_6: -1699915563560055049
+      trang tri_60: 941947235
+      trang tri_7: 3706012667420003014
+      trang tri_8: 3392871100024601686
+      trang tri_9: -6019468410279629022
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: SlimeLootTable
+  m_EditorClassIdentifier: Assembly-CSharp::LootTable
+  entries:
+  - itemPrefab: {fileID: 2455965282541548233, guid: 7de657aafac24cc41b8f08c925fee16e, type: 3}
+    itemName: 
+    dropChance: 0
+    minAmount: 0
+    maxAmount: 0
+    rarity: 0
+  - itemPrefab: {fileID: 1993369039901089064, guid: 915f3b109d1e0fe49af4c596a9267e87, type: 3}
+    itemName: 
+    dropChance: 0
+    minAmount: 0
+    maxAmount: 0
+    rarity: 0
+  - itemPrefab: {fileID: 1906795144807032439, guid: 88a876f56b012df4db041423ff28b274, type: 3}
+    itemName: 
+    dropChance: 0
+    minAmount: 0
+    maxAmount: 0
+    rarity: 0
+  - itemPrefab: {fileID: 2455965282541548233, guid: 9fdd63a9989a183419b15c129c367e01, type: 3}
+    itemName: 'sword '
+    dropChance: 100
+    minAmount: 1
+    maxAmount: 1
+    rarity: 0
+  - itemPrefab: {fileID: 2455965282541548233, guid: 2f12ec00e9d50e84f98fae74d3de164c, type: 3}
+    itemName: arrow
+    dropChance: 100
+    minAmount: 1
+    maxAmount: 1
+    rarity: 0

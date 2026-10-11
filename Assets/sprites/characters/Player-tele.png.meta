@@ -1,0 +1,561 @@
+fileFormatVersion: 2
+guid: 75956522e6b0a6647924e2765b1020e5
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7689520821273185181
+    second: Player-tele_0
+  - first:
+      213: -483987013378732479
+    second: Player-tele_1
+  - first:
+      213: 1900963340167523842
+    second: Player-tele_2
+  - first:
+      213: -6112065426805367985
+    second: Player-tele_3
+  - first:
+      213: -1561103820523299158
+    second: Player-tele_4
+  - first:
+      213: -3835230351096267259
+    second: Player-tele_5
+  - first:
+      213: 4251469740780901470
+    second: Player-tele_6
+  - first:
+      213: -2680474210411095569
+    second: Player-tele_7
+  - first:
+      213: 2889050284088755921
+    second: Player-tele_8
+  - first:
+      213: 8999045428403157767
+    second: Player-tele_9
+  - first:
+      213: -2880432952489460879
+    second: Player-tele_10
+  - first:
+      213: 4195313395406669800
+    second: Player-tele_11
+  - first:
+      213: 213633563173288551
+    second: Player-tele_12
+  - first:
+      213: 6061956281574738467
+    second: Player-tele_13
+  - first:
+      213: 121374837377756898
+    second: Player-tele_14
+  - first:
+      213: -2076032907706807819
+    second: Player-tele_15
+  - first:
+      213: 4618097093765572206
+    second: Player-tele_16
+  - first:
+      213: -5659705996126821630
+    second: Player-tele_17
+  - first:
+      213: 5294551844768473377
+    second: Player-tele_18
+  - first:
+      213: -7170629860369132942
+    second: Player-tele_19
+  - first:
+      213: 3457026574950088295
+    second: Player-tele_20
+  - first:
+      213: -2234971337787280672
+    second: Player-tele_21
+  - first:
+      213: 6053859616805265696
+    second: Player-tele_22
+  - first:
+      213: 3298756709474058759
+    second: Player-tele_23
+  - first:
+      213: -3131429227192487143
+    second: Player-tele_24
+  - first:
+      213: 7948835528914792152
+    second: Player-tele_25
+  - first:
+      213: 3758952485960358270
+    second: Player-tele_26
+  - first:
+      213: -7944679528914883469
+    second: Player-tele_27
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Player-tele_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 457
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 364ba0bcd85594590800000000000000
+      internalID: -7689520821273185181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player-tele_1
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 457
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14e88a720688849f0800000000000000
+      internalID: -483987013378732479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player-tele_2
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 457
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20ea9bd0614916a10800000000000000
+      internalID: 1900963340167523842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player-tele_3
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 457
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4bd15f90e49d2ba0800000000000000
+      internalID: -6112065426805367985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player-tele_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 329
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aae1438a858d55ae0800000000000000
+      internalID: -1561103820523299158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player-tele_5
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 329
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50e3c1bc05686cac0800000000000000
+      internalID: -3835230351096267259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player-tele_6
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 329
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5451983431400b30800000000000000
+      internalID: 4251469740780901470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player-tele_7
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 329
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe9d9da48ea0dcad0800000000000000
+      internalID: -2680474210411095569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player-tele_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 201
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d60a513de7f71820800000000000000
+      internalID: 2889050284088755921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player-tele_9
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 201
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70bb29d532803ec70800000000000000
+      internalID: 8999045428403157767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player-tele_10
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 201
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17b398bad75a608d0800000000000000
+      internalID: -2880432952489460879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player-tele_11
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 201
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e707ae2e4fb83a30800000000000000
+      internalID: 4195313395406669800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player-tele_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 73
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76a7b05089af6f200800000000000000
+      internalID: 213633563173288551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player-tele_13
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 73
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32ac537de15602450800000000000000
+      internalID: 6061956281574738467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player-tele_14
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 73
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ee629285c53fa100800000000000000
+      internalID: 121374837377756898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: e5d89a11b19af8941b3b3f02a3737bd9
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":128.0,"y":128.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      Player-tele_0: -7689520821273185181
+      Player-tele_1: -483987013378732479
+      Player-tele_10: -2880432952489460879
+      Player-tele_11: 4195313395406669800
+      Player-tele_12: 213633563173288551
+      Player-tele_13: 6061956281574738467
+      Player-tele_14: 121374837377756898
+      Player-tele_2: 1900963340167523842
+      Player-tele_3: -6112065426805367985
+      Player-tele_4: -1561103820523299158
+      Player-tele_5: -3835230351096267259
+      Player-tele_6: 4251469740780901470
+      Player-tele_7: -2680474210411095569
+      Player-tele_8: 2889050284088755921
+      Player-tele_9: 8999045428403157767
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
