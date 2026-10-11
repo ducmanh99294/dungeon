@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: sword
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   itemName: sword
-  icon: {fileID: -1950377815657158734, guid: f0c3344b4f8082943b4a06781639a331, type: 3}
+  icon: {fileID: -4029819251187114856, guid: 25de953bde7297d47b8dd314d3be1c8e, type: 3}
   type: 0
   rarity: 0
   description: 
@@ -29,3 +29,4 @@ MonoBehaviour:
   weaponAnimatorController: {fileID: 9100000, guid: 601dd7fd04cfbfd4c8eb90cae791d56b, type: 2}
   slashEffectPrefab: {fileID: 0}
   weaponKind: 1
+  serverItemId: 6ac8a202f2f347579792ea84

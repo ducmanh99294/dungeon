@@ -1,56 +1,92 @@
-﻿using UnityEngine;
+// TalentRollManager.cs — Thiên phú do SERVER roll và lưu.
+// Client chỉ gọi API và hiển thị kết quả, không tự random, không tự cộng chỉ số.
+using System.Collections;
+using UnityEngine;
 using UnityEngine.UI;
-using TMPro; // Bắt buộc phải có dòng này để dùng TextMeshPro
+using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.Networking;
 
 public class TalentRollManager : MonoBehaviour
 {
-    // Cắm các UI Element vào đây giống như getElementById
     public TextMeshProUGUI resultText;
     public Button rollButton;
     public Button continueButton;
 
-    // Mảng dữ liệu chứa các Thiên Phú
-    private string[] danhSachThienPhu = {
-        "Sức mạnh vô song (+10 ATK)",
-        "Thân thủ du long (+5 Speed)",
-        "Mình đồng da sắt (+20 HP)",
-        "Kẻ được chọn (X2 EXP)"
-    };
+    [System.Serializable]
+    private class TalentDto
+    {
+        public string id;
+        public string name;
+        public string desc;
+    }
+
+    [System.Serializable]
+    private class RollResponse
+    {
+        public bool success;
+        public bool alreadyRolled;
+        public TalentDto talent;
+    }
 
     void Start()
     {
-        // Khi mới vào, hiện nút Rút và ẩn nút Đi tiếp
         rollButton.gameObject.SetActive(true);
         continueButton.gameObject.SetActive(false);
+        rollButton.onClick.AddListener(RollTalent);
+        continueButton.onClick.AddListener(GoToTutorial);
     }
 
-    // Hàm gắn vào sự kiện onClick của nút Rút Thiên Phú
+    // Gắn vào sự kiện onClick của nút Rút Thiên Phú
     public void RollTalent()
     {
-        // Random từ 0 đến chỉ số cuối của mảng
-        int randomIndex = Random.Range(0, danhSachThienPhu.Length);
-        string thienPhuDaChon = danhSachThienPhu[randomIndex];
+        rollButton.interactable = false;
+        resultText.text = "Đang rút...";
+        StartCoroutine(RollTalentRoutine());
+    }
 
-        // Đổi chữ trên giao diện
-        resultText.text = thienPhuDaChon;
+    IEnumerator RollTalentRoutine()
+    {
+        var nm = NetworkManager.Instance;
+        if (nm == null || string.IsNullOrEmpty(nm.Token))
+        {
+            resultText.text = "Chưa đăng nhập!";
+            rollButton.interactable = true;
+            yield break;
+        }
 
-        // Thêm hiệu ứng màu sắc (tùy chọn)
+        string url = $"{nm.serverUrl}/api/player/talent/roll";
+        using var req = UnityWebRequest.PostWwwForm(url, "");
+        req.SetRequestHeader("Authorization", $"Bearer {nm.Token}");
+
+        yield return req.SendWebRequest();
+
+        rollButton.interactable = true;
+
+        if (req.result != UnityWebRequest.Result.Success)
+        {
+            resultText.text = "Lỗi kết nối server!";
+            Debug.LogError($"[Talent] Roll failed: {req.error}");
+            yield break;
+        }
+
+        var res = JsonUtility.FromJson<RollResponse>(req.downloadHandler.text);
+        if (res == null || !res.success || res.talent == null)
+        {
+            resultText.text = "Roll thất bại, thử lại!";
+            yield break;
+        }
+
+        resultText.text = $"{res.talent.name}\n({res.talent.desc})";
         resultText.color = Color.yellow;
 
-        // Lưu ID thiên phú vào Local Storage của Unity
-        PlayerPrefs.SetInt("TalentID", randomIndex);
-        PlayerPrefs.Save();
-
-        // Ẩn nút Rút đi, hiện nút Bắt đầu lên
         rollButton.gameObject.SetActive(false);
         continueButton.gameObject.SetActive(true);
     }
 
-    // Hàm gắn vào sự kiện onClick của nút Bắt đầu
+    // Gắn vào sự kiện onClick của nút Bắt đầu
     public void GoToTutorial()
     {
-        // Chuyển scene (Nhớ add TutorialScene vào Build Settings)
         SceneManager.LoadScene("TutorialScene");
     }
 }

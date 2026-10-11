@@ -55,6 +55,9 @@ public class SlimeEnemy : MonoBehaviour
         startPosition = transform.position;
         PickNewWanderTarget();
 
+        if (health == null)
+            Debug.LogError($"[SlimeEnemy] {name} thiếu Health component — quái sẽ đứng yên!", this);
+
         if (health != null)
         {
             health.OnDeath += Die;

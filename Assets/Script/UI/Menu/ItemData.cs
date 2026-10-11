@@ -22,7 +22,7 @@ public class ItemData : ScriptableObject
     public int defenseBonus;
     public int hpBonus;
     public int manaBonus;
-    public enum WeaponKind { None, Sword, Bow, Axe, Sprite, shilde }
+    public enum WeaponKind { None, Sword, Bow, Axe, Sprite, Shield }
 
     [Header("Skill Book (chỉ dùng nếu là sách skill)")]
     public bool isSkillBook = false;
@@ -35,6 +35,10 @@ public class ItemData : ScriptableObject
     public RuntimeAnimatorController weaponAnimatorController;
     public GameObject slashEffectPrefab;
     public WeaponKind weaponKind = WeaponKind.None;
+
+    [Header("Server")]
+    [Tooltip("ObjectId của Item tương ứng trên server (MongoDB). Để trống = item chỉ tồn tại local, không đồng bộ.")]
+    public string serverItemId;
 
     public Color GetRarityColor()
     {

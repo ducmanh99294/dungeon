@@ -1,12 +1,12 @@
-﻿// HitStunEffect.cs — gắn vào mỗi Enemy
+// HitStunEffect.cs — gắn vào mỗi Enemy
 using System.Collections;
 using UnityEngine;
 
 public class HitStunEffect : MonoBehaviour
 {
     [Header("Stun Settings")]
-    public float stunDuration = 0.18f;   // freeze bao lâu (giây)
-    public int flashCount = 4;       // số lần flash
+    public float stunDuration = 0.18f; // freeze bao lâu (giây)
+    public int flashCount = 4;         // số lần flash
     public Color flashColor = new Color(1f, 0.2f, 0.2f, 1f); // đỏ
 
     private SpriteRenderer sr;
@@ -20,13 +20,16 @@ public class HitStunEffect : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        originalColor = sr.color;
+        if (sr != null)
+            originalColor = sr.color;
+        else
+            Debug.LogError($"[HitStun] {name} thiếu SpriteRenderer!", this);
     }
 
     public void TriggerHitStun()
     {
-        if (!isStunned)
-            StartCoroutine(HitStunRoutine());
+        if (sr == null || isStunned) return;
+        StartCoroutine(HitStunRoutine());
     }
 
     IEnumerator HitStunRoutine()

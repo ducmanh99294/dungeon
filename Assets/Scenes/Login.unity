@@ -3388,6 +3388,52 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1124672577
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1124672579}
+  - component: {fileID: 1124672578}
+  m_Layer: 0
+  m_Name: NetworkManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1124672578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1124672577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 413cee59ff260294cacf8a72fbf67559, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NetworkManager
+  serverUrl: http://localhost:3000
+  showLogs: 1
+--- !u!4 &1124672579
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1124672577}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -58.32872, y: 13.69146, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1198038740
 GameObject:
   m_ObjectHideFlags: 0
@@ -5360,22 +5406,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e85833c31999cc7448c51134801fa333, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventoryManager
-  menuPanel: {fileID: 0}
-  inventoryPanel: {fileID: 0}
-  itemGridParent: {fileID: 0}
-  slotPrefab: {fileID: 2224892971370053383, guid: da02f0dcde209ad4dabcb556468f8828, type: 3}
-  itemIcon: {fileID: 0}
-  itemName: {fileID: 0}
-  itemRarity: {fileID: 0}
-  itemDesc: {fileID: 0}
-  itemType: {fileID: 0}
-  itemValue: {fileID: 0}
-  rarityBorder: {fileID: 0}
-  goldText: {fileID: 0}
-  weightText: {fileID: 0}
-  maxWeight: 100
-  gold: 0
-  btnUse: {fileID: 0}
 --- !u!114 &1992730324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6032,3 +6062,4 @@ SceneRoots:
   - {fileID: 1113367179}
   - {fileID: 489792830}
   - {fileID: 1991638216}
+  - {fileID: 1124672579}

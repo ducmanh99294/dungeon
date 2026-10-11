@@ -1,4 +1,4 @@
-// ItemSlot.cs � g?n v�o m?i Slot trong ItemGrid
+// ItemSlot.cs — gắn vào mỗi Slot trong ItemGrid
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
@@ -37,7 +37,7 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandle
                 borderImage.sprite = raritySprites[index];
         }
 
-        // Hi?n s? l??ng n?u stack > 1
+        // Hiện số lượng nếu stack > 1
         if (stack.amount > 1)
         {
             amountText.text = stack.amount.ToString();
@@ -57,12 +57,21 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandle
         if (bgImage != null) bgImage.sprite = normalBg;
     }
 
-    // ?? EVENTS ??????????????????????????????????
+    // ── EVENTS ──────────────────────────────────
     public void OnPointerClick(PointerEventData eventData)
     {
         if (CurrentStack == null) return;
 
-        // Deselect slot c?
+        SelectThis();
+
+        // Double-click → dùng/equip ngay, khỏi cần tìm nút
+        if (eventData.clickCount >= 2)
+            InventoryManager.Instance?.OnUseButton();
+    }
+
+    void SelectThis()
+    {
+        // Bỏ chọn slot cũ
         if (currentSelected != null && currentSelected != this)
         {
             currentSelected.IsSelected = false;
@@ -70,12 +79,12 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandle
                 currentSelected.bgImage.sprite = currentSelected.normalBg;
         }
 
-        // Select slot n�y
+        // Chọn slot này
         IsSelected = true;
         currentSelected = this;
         if (bgImage != null) bgImage.sprite = selectedBg;
 
-        // Hi?n detail
+        // Hiện detail
         InventoryManager.Instance?.ShowDetail(CurrentStack);
     }
 

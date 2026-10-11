@@ -49,6 +49,8 @@ public class InventoryManager : MonoBehaviour
 
     void Start()
     {
+        // Nếu chưa gán nút Use trong Inspector thì tự tạo 1 nút trong panel detail
+        EnsureUseButton();
         btnUse.onClick.AddListener(OnUseButton);
         equippedWeapon = WeaponController.Instance?.Current;
         // Xóa slot cũ nếu có
@@ -166,6 +168,7 @@ public class InventoryManager : MonoBehaviour
         itemType.text = $"Type: {d.type}";
         itemValue.text = $"Sell Value: {d.sellValue} G\nStack Size: {stack.amount}";
         rarityBorder.color = d.GetRarityColor();
+        UpdateUseButtonLabel(d);
     }
 
     void ClearDetail()
@@ -176,6 +179,7 @@ public class InventoryManager : MonoBehaviour
         if (itemType != null) itemType.text = "";
         if (itemValue != null) itemValue.text = "";
         if (itemIcon != null) itemIcon.enabled = false;
+        UpdateUseButtonLabel(null);
     }
 
     void UpdateStatsUI()
@@ -251,7 +255,68 @@ public class InventoryManager : MonoBehaviour
         {
             equippedWeapon = unequip ? null : item;
             RefreshGrid();
+            UpdateUseButtonLabel(item);
         }
+    }
+
+    // ── NÚT USE TRONG PANEL DETAIL ────────────────────
+    // Nếu chưa gán btnUse trong Inspector thì tự tạo 1 nút ở đáy panel detail.
+    // Nút tự đổi nhãn: EQUIP / UNEQUIP / USE tùy loại đồ đang chọn.
+    void EnsureUseButton()
+    {
+        if (btnUse != null) return;
+
+        Transform detailParent = itemName != null ? itemName.transform.parent : transform;
+
+        var go = new GameObject("UseButton (Auto)",
+            typeof(RectTransform), typeof(Button), typeof(Image));
+        go.transform.SetParent(detailParent, false);
+        go.transform.SetAsLastSibling();
+
+        var rt = go.GetComponent<RectTransform>();
+        rt.anchorMin = new Vector2(0.5f, 0f);
+        rt.anchorMax = new Vector2(0.5f, 0f);
+        rt.pivot = new Vector2(0.5f, 0f);
+        rt.anchoredPosition = new Vector2(0f, 12f);
+        rt.sizeDelta = new Vector2(180f, 46f);
+
+        var img = go.GetComponent<Image>();
+        img.color = new Color(0.85f, 0.62f, 0.18f); // vàng đồng cho dễ thấy
+
+        var txtGo = new GameObject("Label", typeof(RectTransform));
+        txtGo.transform.SetParent(go.transform, false);
+        var txtRt = txtGo.GetComponent<RectTransform>();
+        txtRt.anchorMin = Vector2.zero;
+        txtRt.anchorMax = Vector2.one;
+        txtRt.offsetMin = Vector2.zero;
+        txtRt.offsetMax = Vector2.zero;
+
+        var txt = txtGo.AddComponent<TextMeshProUGUI>();
+        // Mượn font của text có sẵn trong scene cho chắc ăn
+        if (itemName != null)
+        {
+            txt.font = itemName.font;
+            txt.fontSharedMaterial = itemName.fontSharedMaterial;
+        }
+        txt.text = "USE";
+        txt.fontSize = 22;
+        txt.alignment = TextAlignmentOptions.Center;
+        txt.color = Color.black;
+
+        btnUse = go.GetComponent<Button>();
+        Debug.Log("[Inventory] Đã tự tạo nút USE trong panel detail (hoặc double-click vào ô đồ).");
+    }
+
+    void UpdateUseButtonLabel(ItemData d)
+    {
+        if (btnUse == null) return;
+        var txt = btnUse.GetComponentInChildren<TextMeshProUGUI>();
+        if (txt == null) return;
+
+        if (d != null && d.type == ItemType.Weapon)
+            txt.text = (equippedWeapon == d) ? "UNEQUIP" : "EQUIP";
+        else
+            txt.text = "USE";
     }
 }
 

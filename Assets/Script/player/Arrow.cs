@@ -31,7 +31,7 @@ public class Arrow : MonoBehaviour
         if (nm == null || string.IsNullOrEmpty(nm.monsterId)) return;
 
         hit = true;
-        NetworkManager.Instance?.SendMonsterAttack(nm.monsterId, attackId); // server tính damage
+        NetworkManager.Instance?.SendMonsterAttack(nm.monsterId, attackId); // server tÃ­nh damage
         other.GetComponent<HitStunEffect>()?.TriggerHitStun();
         Destroy(gameObject);
     }

@@ -96,27 +96,72 @@ public class MonsterSpawnManager : MonoBehaviour
     }
 
     // ── HANDLE MONSTER DAMAGED ───────────────────────────────────────────────
-    // Nhận từ server khi player khác đánh monster
+    // Nhận từ server khi monster bị đánh (kể cả đòn của mình, server echo lại)
 
     void HandleMonsterDamaged(MonsterDamagedData data)
     {
-        if (!activeMonsters.TryGetValue(data.monsterId, out var go)) return;
-        if (go == null) return;
+        if (!activeMonsters.TryGetValue(data.monsterId, out var go))
+            return;
 
-        var health = go.GetComponent<Health>();
-        if (health != null)
+        if (go == null)
         {
-            // Sync HP từ server
-            health.currentHP = data.hp;
-            //          health.OnHealthChanged?.Invoke(data.hp, data.maxHp);
+            activeMonsters.Remove(data.monsterId);
+            return;
         }
 
-        // Monster chết
+        var health = go.GetComponent<Health>();
+
+        // Đi qua Health.TakeDamage thay vì gán HP trực tiếp, để fire đầy đủ:
+        // OnHealthChanged (thanh máu, hurt state, flash đỏ) và
+        // OnDeath (death anim, rớt loot, cộng EXP)
+        // Lưu ý: enemy phải để useInvincibility = false trong Inspector
+        if (health != null && !health.IsDead && data.hp < health.currentHP)
+        {
+            int damage = health.currentHP - data.hp;
+            health.TakeDamage(damage);
+        }
+
         if (data.killed)
         {
             activeMonsters.Remove(data.monsterId);
-            Destroy(go, 1f); // delay để chạy death anim
+
+            // Đảm bảo chạy death flow nếu TakeDamage chưa giết được
+            // (vd. useInvincibility bị bật nhầm trên enemy)
+            if (health != null && !health.IsDead)
+                health.TakeDamage(health.currentHP);
+
+            // Destroy sau delay để death anim kịp chạy.
+            // SlimeEnemy.Die cũng tự Destroy sau 1.5s — gọi trùng vẫn an toàn.
+            Destroy(go, 1.5f);
         }
+    }
+
+    // ── SPAWN TỪ DUNGEON ──────────────────────────────────────────────────
+    // Dùng cho procedural dungeon: server đã validate + chọn quái,
+    // client chỉ việc spawn theo danh sách server trả về.
+
+    public void SpawnFromTemplates(System.Collections.Generic.List<MonsterTemplateData> templates)
+    {
+        if (templates == null) return;
+
+        ClearAllMonsters();
+
+        foreach (var template in templates)
+            SpawnMonster(template);
+
+        Debug.Log($"[MonsterSpawn] Spawned {templates.Count} dungeon monsters");
+    }
+
+    // Spawn THÊM quái mà không xóa quái cũ.
+    // Dùng cho quái canh phòng bí mật (xuất hiện khi cửa mở).
+    public void SpawnExtra(System.Collections.Generic.List<MonsterTemplateData> templates)
+    {
+        if (templates == null) return;
+
+        foreach (var template in templates)
+            SpawnMonster(template);
+
+        Debug.Log($"[MonsterSpawn] Spawned {templates.Count} extra monsters");
     }
 
     // ── CLEAR ────────────────────────────────────────────────────────────────

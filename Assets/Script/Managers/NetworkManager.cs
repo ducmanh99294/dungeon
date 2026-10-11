@@ -28,6 +28,8 @@ public class NetworkManager : MonoBehaviour
     public event Action<MonsterSpawnedData> OnMonsterSpawned;
     public event Action<MonsterKilledData> OnMonsterKilled;
     public event Action<ZoneMonstersData> OnZoneMonsters;
+    public event Action<string> OnPuzzleSolved;
+
     public event Action OnConnected;
     public event Action OnDisconnected;
     public event Action<PlayerData> OnPlayerJoined;
@@ -234,6 +236,12 @@ public class NetworkManager : MonoBehaviour
         socket?.Emit("chat_message", new { message });
     }
 
+    public void SendPuzzleSolved(string puzzleId)
+    {
+        if (!IsConnected) return;
+        socket?.Emit("puzzle_solved", new { puzzleId });
+    }
+
     public void SavePlayer(PlayerSaveData data)
     {
         socket?.Emit("save_player", data);
@@ -408,4 +416,10 @@ public class JoinByCodeResult
     public string zoneId;
     public string scene;
     public bool isGuest;
+}
+
+[Serializable] 
+public class PuzzleSolvedData 
+{ 
+    public string puzzleId; 
 }
