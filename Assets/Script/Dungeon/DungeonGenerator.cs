@@ -31,7 +31,13 @@ public class DungeonGenerator : MonoBehaviour
     public int corridorWidth = 3;
 
     [Header("Spawn quái")]
-    public int maxMonsterSpawns = 14;
+    [Tooltip("Số điểm spawn quái tối đa. PHẢI <= maxMonsters của tầng trong DungeonTiers.js (tầng 1 = 12)")]
+    public int maxMonsterSpawns = 12;
+    [Tooltip("BẬT: chỉ spawn quái bên trong các phòng (không spawn ở hành lang). TẮT: spawn ở mọi ô sàn")]
+    public bool spawnInRoomsOnly = true;
+    [Tooltip("Số phòng ngẫu nhiên được đặt quái. 0 = mọi phòng đều có thể có quái")]
+    public int roomsWithMonsters = 0;
+    [Tooltip("Khoảng cách tối thiểu từ điểm spawn quái đến player")]
     public float minSpawnDistFromPlayer = 8f; // ô tile
 
     [Header("Điểm spawn người chơi")]
@@ -99,35 +105,85 @@ public class DungeonGenerator : MonoBehaviour
         // 3b. Đặt phòng bí mật (SAU khi đào hành lang — để kiểm tra ô cửa còn là tường)
         PlaceSecretRooms(rng, rooms, tiles, data);
 
-        // 4. Điểm spawn quái: ô sàn ngẫu nhiên, cách xa điểm spawn người chơi,
-        //    KHÔNG spawn trong phòng bí mật (tránh kẹt logic diệt-hết-quái)
-        var spawns = new List<Vector2>();
-        int guard = 0;
-        while (spawns.Count < maxMonsterSpawns && guard < 2000)
-        {
-            guard++;
-            int x = rng.Next(1, width - 1);
-            int y = rng.Next(1, height - 1);
-            if (tiles[y * width + x] != DungeonData.FLOOR) continue;
-            if (data.IsInSecretRoom(x, y)) continue;
+        // 4. Điểm spawn quái: chọn từ các ô sàn BÊN TRONG phòng thường
+        //    (không spawn ở hành lang, không spawn trong phòng bí mật).
+        data.monsterSpawns = PickMonsterSpawns(
+            rng, tiles, rooms, data,
+            maxMonsterSpawns, minSpawnDistFromPlayer).ToArray();
 
-            var cell = new Vector2Int(x, y);
-            if (Vector2Int.Distance(cell, data.playerSpawn) < minSpawnDistFromPlayer) continue;
+        Debug.Log($"[Dungeon] Seed={seed} | Phòng={rooms.Count} | Phòng bí mật={data.secretRooms.Count} | Sàn={data.FloorCount()} ô | Spawn quái={data.monsterSpawns.Length}");
+        return data;
+    }
+
+    // Chọn điểm spawn quái: ưu tiên các ô sàn bên trong phòng thường.
+    // Phòng bí mật không bao giờ được chọn (tránh kẹt câu đố diệt-hết-quái).
+    List<Vector2> PickMonsterSpawns(System.Random rng, int[] tiles, List<RectInt> rooms,
+        DungeonData data, int count, float minDistFromPlayer)
+    {
+        var spawns = new List<Vector2>();
+        var candidates = new List<Vector2Int>();
+
+        if (spawnInRoomsOnly && rooms.Count > 0)
+        {
+            // Chọn N phòng ngẫu nhiên (0 = mọi phòng)
+            var targetRooms = rooms;
+            if (roomsWithMonsters > 0 && rooms.Count > roomsWithMonsters)
+            {
+                targetRooms = new List<RectInt>(rooms);
+                for (int i = targetRooms.Count - 1; i > 0; i--) // Fisher-Yates shuffle
+                {
+                    int j = rng.Next(i + 1);
+                    var tmp = targetRooms[i];
+                    targetRooms[i] = targetRooms[j];
+                    targetRooms[j] = tmp;
+                }
+                targetRooms = targetRooms.GetRange(0, roomsWithMonsters);
+            }
+
+            // Gom các ô sàn bên trong phòng, inset 1 ô khỏi tường
+            foreach (var r in targetRooms)
+            {
+                for (int x = r.x + 1; x < r.x + r.width - 1; x++)
+                    for (int y = r.y + 1; y < r.y + r.height - 1; y++)
+                        if (tiles[y * width + x] == DungeonData.FLOOR)
+                            candidates.Add(new Vector2Int(x, y));
+            }
+        }
+
+        // Fallback: mọi ô sàn trên map (khi tắt spawnInRoomsOnly hoặc phòng quá nhỏ)
+        if (candidates.Count == 0)
+        {
+            for (int y = 1; y < height - 1; y++)
+                for (int x = 1; x < width - 1; x++)
+                    if (tiles[y * width + x] == DungeonData.FLOOR
+                        && !data.IsInSecretRoom(x, y))
+                        candidates.Add(new Vector2Int(x, y));
+        }
+
+        // Xáo trộn ứng viên rồi chọn tham lam theo ràng buộc khoảng cách
+        for (int i = candidates.Count - 1; i > 0; i--)
+        {
+            int j = rng.Next(i + 1);
+            var tmp = candidates[i];
+            candidates[i] = candidates[j];
+            candidates[j] = tmp;
+        }
+
+        Vector2 playerPos = new Vector2(data.playerSpawn.x + 0.5f, data.playerSpawn.y + 0.5f);
+        foreach (var c in candidates)
+        {
+            if (spawns.Count >= count) break;
+            var p = new Vector2(c.x + 0.5f, c.y + 0.5f);
+            if (Vector2.Distance(p, playerPos) < minDistFromPlayer) continue;
 
             bool tooClose = false;
             foreach (var s in spawns)
-            {
-                if (Vector2.Distance(s, new Vector2(x + 0.5f, y + 0.5f)) < 3f)
-                { tooClose = true; break; }
-            }
+                if (Vector2.Distance(p, s) < 3f) { tooClose = true; break; }
             if (tooClose) continue;
 
-            spawns.Add(new Vector2(x + 0.5f, y + 0.5f)); // tâm ô tile
+            spawns.Add(p);
         }
-        data.monsterSpawns = spawns.ToArray();
-
-        Debug.Log($"[Dungeon] Seed={seed} | Phòng={rooms.Count} | Phòng bí mật={data.secretRooms.Count} | Sàn={data.FloorCount()} ô | Spawn quái={spawns.Count}");
-        return data;
+        return spawns;
     }
 
     Vector2Int Center(RectInt r)

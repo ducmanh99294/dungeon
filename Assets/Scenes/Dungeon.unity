@@ -152,6 +152,12 @@ MonoBehaviour:
   monsters:
   - type: slime
     prefab: {fileID: 8132155105715544210, guid: 23cf937ec177e924daf56037f0242a3f, type: 3}
+  - type: skeleton
+    prefab: {fileID: 8132155105715544210, guid: 1b88489a13987bb449d00f23c10763b8, type: 3}
+  - type: goblin
+    prefab: {fileID: 8132155105715544210, guid: ba89a325b2b666443bb35a292ae36d60, type: 3}
+  - type: wolf
+    prefab: {fileID: 8132155105715544210, guid: 00541a01402391a4098743ebcda61f41, type: 3}
 --- !u!114 &87358515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -976,7 +982,7 @@ TilemapRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -1182,8 +1188,14 @@ MonoBehaviour:
   maxRooms: 7
   minRoomSize: 5
   maxRoomSize: 11
+  secretRoomCount: 1
+  minSecretRoomSize: 5
+  maxSecretRoomSize: 8
+  secretPuzzlePool: 0000000001000000
   corridorWidth: 3
-  maxMonsterSpawns: 14
+  maxMonsterSpawns: 12
+  spawnInRoomsOnly: 1
+  roomsWithMonsters: 0
   minSpawnDistFromPlayer: 8
   spawnAtMapCenter: 1
 --- !u!114 &1388850760
@@ -1200,18 +1212,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DungeonTilemapPainter
   floorMap: {fileID: 1142441633}
   wallMap: {fileID: 1166613763}
-  floorTileA: {fileID: 11400000, guid: 5daebfae3291f4748a3ad0952f13a4d0, type: 2}
-  floorTileB: {fileID: 11400000, guid: 8cbbcfcc95a00be4c8accef239668980, type: 2}
-  floorTileC: {fileID: 11400000, guid: 505265e47da9bf54483ebc51f18240f4, type: 2}
+  floorTileA: {fileID: 11400000, guid: 8f362f68fbb33e64fb9074a86e8283fc, type: 2}
+  floorTileB: {fileID: 11400000, guid: e0dadeb0993ed6d448ffbb30c65e376c, type: 2}
+  floorTileC: {fileID: 11400000, guid: 800b4a4d234439643a4f60d2921c6796, type: 2}
   floorWeightA: 60
   floorWeightB: 25
   floorWeightC: 15
-  wallHTile: {fileID: 11400000, guid: 54dbeb0b7b7e8f940ac15ecfec3994ad, type: 2}
-  wallTopTile: {fileID: 11400000, guid: ddb78432ee5c99545a86b577b7879613, type: 2}
-  wallBottomTile: {fileID: 11400000, guid: c1b86e6a5847d4d48b27b8adee9911e2, type: 2}
-  wallVTile: {fileID: 11400000, guid: f83933e68f37aca49b16873b91d2e425, type: 2}
-  wallLightHTile: {fileID: 11400000, guid: e9937dbaa547c2e4a96e9c8f37da7cfb, type: 2}
-  wallLightVTile: {fileID: 11400000, guid: c5c525adf7bb197428fd873473f96ce6, type: 2}
+  wallHTile: {fileID: 11400000, guid: 5fdd83ae62af75b4599e4a52c669f152, type: 2}
+  wallTopTile: {fileID: 11400000, guid: 5fdd83ae62af75b4599e4a52c669f152, type: 2}
+  wallBottomTile: {fileID: 11400000, guid: e199fa35e0fa26a4c846c644bc4cd0c5, type: 2}
+  wallVTile: {fileID: 11400000, guid: 855dd63e1d7d74246890e3cdb91c3972, type: 2}
+  wallVLeftTile: {fileID: 11400000, guid: 6756dea812cdde34abeb97c2c829ef0a, type: 2}
+  wallVRightTile: {fileID: 11400000, guid: a701129ad91381b4b90e7cf9a4e80b10, type: 2}
+  wallCornerTopLeft: {fileID: 11400000, guid: 5fdd83ae62af75b4599e4a52c669f152, type: 2}
+  wallCornerTopRight: {fileID: 11400000, guid: 5fdd83ae62af75b4599e4a52c669f152, type: 2}
+  wallCornerBottomLeft: {fileID: 11400000, guid: 583405ac375652e42ac289630f968a18, type: 2}
+  wallCornerBottomRight: {fileID: 11400000, guid: b5a14d2a6f153f74bb2d46b5e0b4a9fb, type: 2}
+  wallCornerInnerTopLeft: {fileID: 11400000, guid: 7cec8a5bf4502b94597bca713459c15f, type: 2}
+  wallCornerInnerTopRight: {fileID: 11400000, guid: 72b2b323035c657478ce4c273edd23be, type: 2}
+  wallCornerInnerBottomLeft: {fileID: 11400000, guid: f17684e18dcca174dadcc964a2ce9467, type: 2}
+  wallCornerInnerBottomRight: {fileID: 11400000, guid: e07db01f7958eba42bd19c7e43826b07, type: 2}
+  lockedDoorTile: {fileID: 0}
+  lightTileCells: []
+  wallLightHTile: {fileID: 11400000, guid: 5fdd83ae62af75b4599e4a52c669f152, type: 2}
+  wallLightVTile: {fileID: 11400000, guid: 6756dea812cdde34abeb97c2c829ef0a, type: 2}
+  wallLightTopTile: {fileID: 11400000, guid: 448b899b9d1509c4ea94a5a5fde0695f, type: 2}
+  wallLightBottomTile: {fileID: 11400000, guid: 5b3b26b2dfe053c47a379038dae8aeee, type: 2}
+  wallLightLeftTile: {fileID: 11400000, guid: 1327d7ee1d703f247b29be6a2a2a42ef, type: 2}
+  wallLightRightTile: {fileID: 11400000, guid: 1efaacf29d06a7c40b014d417ec796ad, type: 2}
   lightTileInterval: 8
   wallLightPrefab: {fileID: 0}
 --- !u!114 &1388850761
@@ -1234,6 +1262,10 @@ MonoBehaviour:
   exitPortalPrefab: {fileID: 0}
   exitSceneName: MainMap
   voidBackgroundColor: {r: 0, g: 0, b: 0, a: 1}
+  torchesPerPuzzle: 1
+  torchUnlitSprite: {fileID: -2085180385, guid: b47bdd88aa2cad94eb0c7db6ef5d4151, type: 3}
+  torchLitSprite: {fileID: -1778646876, guid: b47bdd88aa2cad94eb0c7db6ef5d4151, type: 3}
+  secretGuardians: 3
   dungeonSceneName: Dungeon
   sceneSyncDelay: 0.5
 --- !u!4 &1388850762

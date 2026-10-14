@@ -123,6 +123,7 @@ public class DungeonManager : MonoBehaviour
         Vector3 spawnWorld = painter.CellToWorld(data.playerSpawn);
         spawnWorld.z = player.transform.position.z;
         player.transform.position = spawnWorld;
+        Debug.Log($"[Dungeon] Player spawn: tile={data.playerSpawn} -> world={spawnWorld} | GridPos={painter.floorMap.transform.position}");
 
         // 3b. Camera bám theo player.
         // (Player là DontDestroyOnLoad nên không kéo gán tay trong Inspector được)
@@ -197,7 +198,15 @@ public class DungeonManager : MonoBehaviour
 
         if (req.result != UnityWebRequest.Result.Success)
         {
-            Debug.LogError($"[Dungeon] Xin quái thất bại: {req.error}");
+            // Đọc reason server trả về (vd INVALID_SPAWN_POINTS) để biết chính xác lỗi gì
+            string reason = "";
+            try
+            {
+                var errRes = JsonUtility.FromJson<EnterResponse>(req.downloadHandler.text);
+                reason = errRes != null ? errRes.reason : "";
+            }
+            catch { /* body không phải JSON */ }
+            Debug.LogError($"[Dungeon] Xin quái thất bại: {req.error} | reason={reason} | đã gửi {reqBody.spawnPoints.Count} điểm");
             yield break;
         }
 
