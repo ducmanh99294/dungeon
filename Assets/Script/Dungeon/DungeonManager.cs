@@ -24,6 +24,15 @@ public class DungeonManager : MonoBehaviour
     public DungeonGenerator generator;
     public DungeonTilemapPainter painter;
 
+    [Header("Màu đèn tường theo tầng")]
+    [Tooltip("Màu Point Light 2D của đuốc theo tầng (index 0 = tầng 1). Để trống = dùng màu mặc định của painter.")]
+    public Color[] tierLightColors = new Color[]
+    {
+        new Color(1f, 0.71f, 0.42f), // tầng 1: cam lửa
+        new Color(0.55f, 0.85f, 1f), // tầng 2: xanh băng
+        new Color(0.70f, 0.55f, 1f), // tầng 3: tím ma trơi
+    };
+
     [Header("Cổng ra")]
     public GameObject exitPortalPrefab; // prefab có ScenePortal/trigger về MainMap
     public string exitSceneName = "MainMap";
@@ -106,6 +115,9 @@ public class DungeonManager : MonoBehaviour
         int seed = randomSeed ? UnityEngine.Random.Range(int.MinValue, int.MaxValue) : fixedSeed;
         DungeonData data = generator.Generate(seed);
         currentData = data;
+        // Màu đèn theo tầng (nếu có cấu hình)
+        if (tierLightColors != null && dungeonTier >= 1 && dungeonTier <= tierLightColors.Length)
+            painter.wallLightColor = tierLightColors[dungeonTier - 1];
         painter.Paint(data);
 
         // 2b. Dựng phòng bí mật + câu đố (không cần đợi server)
