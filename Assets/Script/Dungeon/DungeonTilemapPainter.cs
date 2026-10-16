@@ -17,6 +17,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.Serialization;
+using UnityEngine.Rendering.Universal;
 
 public class DungeonTilemapPainter : MonoBehaviour
 {
@@ -44,6 +45,12 @@ public class DungeonTilemapPainter : MonoBehaviour
     [Tooltip("Tường TRÊN: tường ngang có sàn ngay phía dưới (mặt sau, tối)")]
     [FormerlySerializedAs("wallHBottomTile")]
     public TileBase wallTopTile;
+
+    [Header("Biến thể tường TRÊN (tùy chọn — giống cơ chế sàn)")]
+    [Tooltip("Các biến thể tile tường TRÊN (bạn cung cấp) — mỗi ô tường trên chọn ngẫu nhiên 1 tile theo trọng số. Để trống = chỉ dùng Wall Top Tile.")]
+    public TileBase[] wallTopTiles;
+    [Tooltip("Trọng số cho từng biến thể tường trên (ví dụ 60, 25, 15). Số lượng nên khớp với Wall Top Tiles; thiếu/sai = chia đều.")]
+    public float[] wallTopWeights;
     [Tooltip("Tường DƯỚI: tường ngang có sàn ngay phía trên (mặt trước, sáng)")]
     public TileBase wallBottomTile;
     [Tooltip("Tường dọc 2 bên")]
@@ -73,6 +80,25 @@ public class DungeonTilemapPainter : MonoBehaviour
     public TileBase wallCornerInnerBottomLeft;
     [Tooltip("Góc trong DƯỚI-PHẢI (bạn cung cấp) — dự phòng: tile tường theo hướng")]
     public TileBase wallCornerInnerBottomRight;
+
+    [Header("Tilemap chi tiết sàn (tùy chọn)")]
+    [Tooltip("Tilemap vẽ chi tiết trang trí trên sàn (vết nứt, sỏi, xương...). Tạo Tilemap mới tên DetailMap trong scene, Order in Layer = 1.")]
+    public Tilemap detailMap;
+
+    [Header("Tile chi tiết sàn")]
+    [Tooltip("Các tile trang trí (bạn cung cấp) — mỗi ô sàn có tỉ lệ detailChance được vẽ 1 tile ngẫu nhiên trong danh sách")]
+    public TileBase[] detailTiles;
+    [Tooltip("Tỉ lệ mỗi ô sàn được vẽ chi tiết (0-1). Mặc định 0.06 = 6% số ô sàn.")]
+    [Range(0f, 0.5f)]
+    public float detailChance = 0.06f;
+
+    [Header("Bóng đổ chân tường (tùy chọn)")]
+    [Tooltip("Tilemap vẽ bóng đổ (tile bán trong suốt tối màu). Tạo Tilemap mới tên ShadowMap trong scene, Order in Layer = 1.")]
+    public Tilemap shadowMap;
+    [Tooltip("Tile bóng đổ — vẽ ở hàng sàn ngay dưới tường TRÊN (bạn cung cấp)")]
+    public TileBase wallShadowTile;
+    [Tooltip("Bật/tắt bóng đổ chân tường")]
+    public bool enableWallShadow = true;
     [Tooltip("Tile tường nứt (tùy chọn) — vẽ ở ô cửa phòng bí mật khi còn khóa, để người tinh mắt phát hiện")]
     public TileBase lockedDoorTile;
 
@@ -98,12 +124,32 @@ public class DungeonTilemapPainter : MonoBehaviour
     public int lightTileInterval = 5;
     [Tooltip("Prefab có Point Light 2D — nếu gán, mỗi tile đèn sẽ phát sáng thật. Không gán thì chỉ vẽ tile.")]
     public GameObject wallLightPrefab;
+    [Tooltip("Màu ánh sáng của đèn tường (áp dụng lên Point Light 2D khi spawn). DungeonManager có thể ghi đè theo tầng.")]
+    public Color wallLightColor = new Color(1f, 0.71f, 0.42f); // cam lửa #FFB46B
+    [Tooltip("Đẩy đèn ra khỏi mặt tường bao xa (để điểm sáng nhất không đè lên tile đuốc). 0 = ngay tâm tile.")]
+    public float wallLightOffset = 0.6f;
+    [Header("Đèn chiếu sáng (lớp 2)")]
+    [Tooltip("Bật đèn chiếu sáng riêng: 1 đèn nhỏ hiển thị quả cầu cam (giữ nguyên như prefab) + 1 đèn rộng chỉ chiếu sáng (tắt volumetric nên không thấy quả cầu to).")]
+    public bool enableRangeLight = true;
+    [Tooltip("Vùng chiếu sáng rộng gấp mấy lần so với quả cầu hiển thị (1.5 = rộng gấp rưỡi).")]
+    public float wallLightRangeScale = 1.5f;
+    [Tooltip("Độ sáng của đèn chiếu sáng so với đèn hiển thị (0.4 = 40%). Thấp = chỉ sáng fill nhẹ, không lấn át quả cầu cam.")]
+    [Range(0f, 1f)]
+    public float wallRangeLightIntensity = 0.4f;
+    [Tooltip("Prefab RIÊNG cho đèn chiếu sáng (tùy chọn). Nếu gán: dùng prefab này (bạn tự tắt volumetric, chỉnh vùng sáng to, intensity thấp trong Inspector — code chỉ nhuộm màu theo tầng). Không gán = tự clone từ Wall Light Prefab.")]
+    public GameObject wallRangeLightPrefab;
+
+    [Header("Lớp hiển thị đuốc (tùy chọn)")]
+    [Tooltip("Tilemap vẽ HÌNH đuốc (art trong suốt: chỉ giá đỡ + lửa, không nền gạch). Nếu gán, tile tường được giữ nguyên và hình đuốc vẽ đè lên lớp riêng. Không gán = thay thế tile tường bằng tile đèn như cũ.")]
+    public Tilemap torchVisualMap;
 
     // Chứa các đèn đã spawn (để xóa khi vẽ lại map)
     Transform lightContainer;
 
     // Tile tường theo hướng của lần Paint hiện tại (để ResolveWallTile dùng)
     TileBase _topTile, _bottomTile, _leftTile, _rightTile;
+    // RNG riêng cho biến thể tường — seed theo dungeon nên deterministic
+    System.Random _wallRng;
     // Thứ tự các ô tường đã vẽ (vị trí + hướng) — dùng để đặt đèn cách đều
     readonly List<(Vector2Int cell, int dir)> _wallDrawOrder = new();
     // Các ô góc (ngoài) — đặt đèn sẽ né các ô này
@@ -121,12 +167,16 @@ public class DungeonTilemapPainter : MonoBehaviour
 
         floorMap.ClearAllTiles();
         wallMap.ClearAllTiles();
+        if (detailMap != null) detailMap.ClearAllTiles();
+        if (shadowMap != null) shadowMap.ClearAllTiles();
+        if (torchVisualMap != null) torchVisualMap.ClearAllTiles();
         lightTileCells.Clear();
         _wallDrawOrder.Clear();
         _cornerCells.Clear();
 
         // RNG riêng cho biến thể sàn — dùng seed của dungeon nên cùng seed = cùng map y hệt
         var floorRng = new System.Random(data.seed);
+        _wallRng = new System.Random(data.seed + 555); // RNG riêng cho biến thể tường
 
         // Xóa đèn của lần vẽ trước (nếu vẽ lại map)
         if (lightContainer != null) Destroy(lightContainer.gameObject);
@@ -200,9 +250,67 @@ public class DungeonTilemapPainter : MonoBehaviour
             }
         }
 
-        // Pass 4: đặt đèn tường (sau khi tường + góc đã vẽ xong)
+        // Vẽ bóng đổ: với mỗi ô tường TRÊN (wallDir == 0), vẽ tile bóng mờ ở ô sàn
+    // ngay bên dưới nó. Tạo cảm giác tường cao đổ bóng xuống sàn.
+    void PaintWallShadows(DungeonData data)
+    {
+        int placed = 0;
+        foreach (var (cellPos, wallDir) in _wallDrawOrder)
+        {
+            if (wallDir != 0) continue; // chỉ tường TRÊN đổ bóng
+            int sx = cellPos.x, sy = cellPos.y - 1;
+            if (sx < 0 || sy < 0 || sx >= data.width || sy >= data.height) continue;
+            if (!data.IsFloor(sx, sy)) continue;
+            var cell = new Vector3Int(sx, sy, 0);
+            if (shadowMap.GetTile(cell) != null) continue;
+            shadowMap.SetTile(cell, wallShadowTile);
+            placed++;
+        }
+        Debug.Log($"[Dungeon] Đặt {placed} bóng đổ chân tường.");
+    }
+
+    // Rải tile trang trí ngẫu nhiên lên sàn (tilemap riêng, không collider).
+    // Dùng seed riêng nên cùng seed dungeon = cùng vị trí chi tiết.
+    void PaintFloorDetails(DungeonData data, System.Random rng)
+    {
+        var tiles = new List<TileBase>();
+        foreach (var t in detailTiles)
+            if (t != null) tiles.Add(t);
+        if (tiles.Count == 0) return;
+
+        // Các ô cấm: điểm spawn player + điểm spawn quái
+        var banned = new HashSet<Vector2Int> { data.playerSpawn };
+        if (data.monsterSpawns != null)
+            foreach (var sp in data.monsterSpawns)
+                banned.Add(new Vector2Int(Mathf.FloorToInt(sp.x), Mathf.FloorToInt(sp.y)));
+
+        int placed = 0;
+        for (int y = 0; y < data.height; y++)
+        {
+            for (int x = 0; x < data.width; x++)
+            {
+                if (!data.IsFloor(x, y)) continue;
+                if (banned.Contains(new Vector2Int(x, y))) continue;
+                if (rng.NextDouble() >= detailChance) continue;
+                detailMap.SetTile(new Vector3Int(x, y, 0), tiles[rng.Next(tiles.Count)]);
+                placed++;
+            }
+        }
+        Debug.Log($"[Dungeon] Đặt {placed} chi tiết sàn.");
+    }
+
+    // Pass 4: đặt đèn tường (sau khi tường + góc đã vẽ xong)
         if (useLightTiles)
             PlaceWallLights(data, doorCellSet);
+
+        // Pass 5: chi tiết sàn rải ngẫu nhiên (vết nứt, sỏi, xương...)
+        // Chỉ vẽ trên ô sàn thật, né điểm spawn player/quái.
+        if (detailMap != null && detailTiles != null && detailChance > 0f)
+            PaintFloorDetails(data, new System.Random(data.seed + 999));
+
+        // Pass 6: bóng đổ chân tường — tile mờ tối ở hàng sàn ngay dưới tường TRÊN
+        if (shadowMap != null && wallShadowTile != null && enableWallShadow)
+            PaintWallShadows(data);
 
         // Vẽ tile cửa khóa ở các ô cửa phòng bí mật (nếu có gán lockedDoorTile)
         if (lockedDoorTile != null)
@@ -213,6 +321,9 @@ public class DungeonTilemapPainter : MonoBehaviour
 
         floorMap.CompressBounds();
         wallMap.CompressBounds();
+        if (detailMap != null) detailMap.CompressBounds();
+        if (shadowMap != null) shadowMap.CompressBounds();
+        if (torchVisualMap != null) torchVisualMap.CompressBounds();
         EnsureWallCollider();
 
         Debug.Log("[Dungeon] Đã vẽ tilemap xong.");
@@ -263,11 +374,38 @@ public class DungeonTilemapPainter : MonoBehaviour
     // - Góc TRONG (lõm, sàn ở 2 hướng kề nhau) → tile góc trong (nếu có)
     // - Còn lại → tile tường thẳng theo hướng.
     // wallDir: 0 = trên, 1 = dưới, 2 = trái, 3 = phải.
+    // Chọn biến thể tường TRÊN ngẫu nhiên theo trọng số (giống cơ chế sàn).
+    // Để trống mảng = dùng Wall Top Tile đơn.
+    TileBase PickWallTopVariant()
+    {
+        if (wallTopTiles == null || wallTopTiles.Length == 0 || _wallRng == null)
+            return _topTile;
+
+        float total = 0f;
+        for (int i = 0; i < wallTopTiles.Length; i++)
+        {
+            if (wallTopTiles[i] == null) continue;
+            float w = (wallTopWeights != null && i < wallTopWeights.Length) ? wallTopWeights[i] : 1f;
+            total += Mathf.Max(0f, w);
+        }
+        if (total <= 0f) return _topTile;
+
+        float r = (float)(_wallRng.NextDouble() * total);
+        for (int i = 0; i < wallTopTiles.Length; i++)
+        {
+            if (wallTopTiles[i] == null) continue;
+            float w = (wallTopWeights != null && i < wallTopWeights.Length) ? wallTopWeights[i] : 1f;
+            r -= Mathf.Max(0f, w);
+            if (r < 0f) return wallTopTiles[i];
+        }
+        return _topTile;
+    }
+
     TileBase ResolveWallTile(DungeonData data, int x, int y, int wallDir)
     {
         TileBase dirTile = wallDir switch
         {
-            0 => _topTile,
+            0 => PickWallTopVariant(), // tường TRÊN: random biến thể
             1 => _bottomTile,
             2 => _leftTile,
             _ => _rightTile,
@@ -335,6 +473,55 @@ public class DungeonTilemapPainter : MonoBehaviour
         _cornerCells.Add(new Vector2Int(cx, cy));
     }
 
+    // Vẽ bóng đổ: với mỗi ô tường TRÊN (wallDir == 0), vẽ tile bóng mờ ở ô sàn
+    // ngay bên dưới nó. Tạo cảm giác tường cao đổ bóng xuống sàn.
+    void PaintWallShadows(DungeonData data)
+    {
+        int placed = 0;
+        foreach (var (cellPos, wallDir) in _wallDrawOrder)
+        {
+            if (wallDir != 0) continue; // chỉ tường TRÊN đổ bóng
+            int sx = cellPos.x, sy = cellPos.y - 1;
+            if (sx < 0 || sy < 0 || sx >= data.width || sy >= data.height) continue;
+            if (!data.IsFloor(sx, sy)) continue;
+            var cell = new Vector3Int(sx, sy, 0);
+            if (shadowMap.GetTile(cell) != null) continue;
+            shadowMap.SetTile(cell, wallShadowTile);
+            placed++;
+        }
+        Debug.Log($"[Dungeon] Đặt {placed} bóng đổ chân tường.");
+    }
+
+    // Rải tile trang trí ngẫu nhiên lên sàn (tilemap riêng, không collider).
+    // Dùng seed riêng nên cùng seed dungeon = cùng vị trí chi tiết.
+    void PaintFloorDetails(DungeonData data, System.Random rng)
+    {
+        var tiles = new List<TileBase>();
+        foreach (var t in detailTiles)
+            if (t != null) tiles.Add(t);
+        if (tiles.Count == 0) return;
+
+        // Các ô cấm: điểm spawn player + điểm spawn quái
+        var banned = new HashSet<Vector2Int> { data.playerSpawn };
+        if (data.monsterSpawns != null)
+            foreach (var sp in data.monsterSpawns)
+                banned.Add(new Vector2Int(Mathf.FloorToInt(sp.x), Mathf.FloorToInt(sp.y)));
+
+        int placed = 0;
+        for (int y = 0; y < data.height; y++)
+        {
+            for (int x = 0; x < data.width; x++)
+            {
+                if (!data.IsFloor(x, y)) continue;
+                if (banned.Contains(new Vector2Int(x, y))) continue;
+                if (rng.NextDouble() >= detailChance) continue;
+                detailMap.SetTile(new Vector3Int(x, y, 0), tiles[rng.Next(tiles.Count)]);
+                placed++;
+            }
+        }
+        Debug.Log($"[Dungeon] Đặt {placed} chi tiết sàn.");
+    }
+
     // Pass 4: đặt đèn tường — mỗi lightTileInterval ô tường thì 1 đèn,
     // đếm theo đúng thứ tự vẽ. Ô cửa bí mật thì bỏ qua.
     // Nếu vị trí đèn rơi vào ô GÓC → lùi lại 1 ô (y-1) nếu ô đó là tường
@@ -366,10 +553,20 @@ public class DungeonTilemapPainter : MonoBehaviour
             if (lightTile == null) continue;
 
             var cell = new Vector3Int(lightPos.x, lightPos.y, 0);
-            wallMap.SetTile(cell, lightTile);
+            if (torchVisualMap != null)
+            {
+                // 2 lớp: giữ nguyên tile tường, vẽ hình đuốc (trong suốt) đè lên lớp riêng
+                if (torchVisualMap.GetTile(cell) == null)
+                    torchVisualMap.SetTile(cell, lightTile);
+            }
+            else
+            {
+                // 1 lớp (cũ): thay thế tile tường bằng tile đèn
+                wallMap.SetTile(cell, lightTile);
+            }
             if (!lightTileCells.Contains(lightPos))
                 lightTileCells.Add(lightPos);
-            SpawnWallLight(cell);
+            SpawnWallLight(cell, wallDir);
             placed++;
         }
         Debug.Log($"[Dungeon] Đặt {placed} đèn tường (mỗi {lightTileInterval} ô).");
@@ -377,14 +574,90 @@ public class DungeonTilemapPainter : MonoBehaviour
 
     // Spawn prefab đèn (Point Light 2D) tại ô tile đèn — chỉ khi có gán prefab.
     // Đèn là con của WallLights nên vẽ lại map sẽ tự xóa đèn cũ.
-    void SpawnWallLight(Vector3Int cell)
+    // Set volumetric intensity qua reflection (tương thích nhiều bản URP).
+    static void SetVolumetricIntensity(Light2D light2D, float value)
+    {
+        var t = light2D.GetType();
+        var prop = t.GetProperty("volumetricIntensity");
+        if (prop != null && prop.CanWrite)
+        {
+            prop.SetValue(light2D, value);
+            return;
+        }
+        var field = t.GetField("m_VolumetricIntensity",
+            System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+        if (field != null)
+            field.SetValue(light2D, value);
+        else
+            Debug.LogWarning("[Dungeon] Không tắt được volumetric của đèn chiếu sáng (không tìm thấy API) — có thể thấy quầng mờ thứ hai.");
+    }
+
+    void SpawnWallLight(Vector3Int cell, int wallDir)
     {
         if (wallLightPrefab == null || lightContainer == null) return;
         // Tâm ô tile (tôn trọng vị trí thật của Grid)
         Vector3 pos = wallMap.CellToWorld(cell) + wallMap.cellSize * 0.5f;
+        // Đẩy đèn ra khỏi mặt tường theo hướng: tường trên → xuống,
+        // tường dưới → lên, tường trái → phải, tường phải → trái.
+        // Điểm sáng nhất nằm ngoài tile nên hình đuốc không bị che.
+        Vector2 off = wallDir switch
+        {
+            0 => new Vector2(0f, -wallLightOffset),
+            1 => new Vector2(0f, wallLightOffset),
+            2 => new Vector2(wallLightOffset, 0f),
+            _ => new Vector2(-wallLightOffset, 0f),
+        };
+        pos.x += off.x;
+        pos.y += off.y;
         pos.z = 0f;
+        // Đèn 1: HIỂN THỊ (quả cầu cam) — giữ nguyên như prefab, không scale
         var light = Instantiate(wallLightPrefab, pos, Quaternion.identity);
         light.transform.SetParent(lightContainer, true);
+        var light2D = light.GetComponent<Light2D>();
+        if (light2D != null)
+            light2D.color = wallLightColor;
+        // Tự gắn nhấp nháy nếu prefab chưa có (không cần làm tay)
+        if (light.GetComponent<TorchFlicker>() == null)
+            light.AddComponent<TorchFlicker>();
+
+        // Đèn 2: CHIẾU SÁNG (vùng rộng, vô hình) — chỉ khi bật enableRangeLight
+        if (enableRangeLight)
+        {
+            GameObject rangeLight;
+            if (wallRangeLightPrefab != null)
+            {
+                // Có prefab riêng: dùng nguyên như bạn đã chỉnh trong Inspector
+                // (tự tắt volumetric, vùng sáng to, intensity thấp) — code chỉ nhuộm màu theo tầng
+                rangeLight = Instantiate(wallRangeLightPrefab, pos, Quaternion.identity);
+                rangeLight.transform.SetParent(lightContainer, true);
+                var custom2D = rangeLight.GetComponent<Light2D>();
+                if (custom2D != null)
+                    custom2D.color = wallLightColor;
+            }
+            else
+            {
+                // Không có prefab riêng: clone từ Wall Light Prefab rồi chỉnh bằng code
+                rangeLight = Instantiate(wallLightPrefab, pos, Quaternion.identity);
+                rangeLight.transform.SetParent(lightContainer, true);
+                // Đèn chiếu sáng đứng yên (không nhấp nháy) cho nhẹ và ổn định
+                var flicker = rangeLight.GetComponent<TorchFlicker>();
+                if (flicker != null) Destroy(flicker);
+                // Mở rộng vùng sáng: Freeform scale theo shape, Point/Spot nhân bán kính
+                rangeLight.transform.localScale = Vector3.one * wallLightRangeScale;
+                var range2D = rangeLight.GetComponent<Light2D>();
+                if (range2D != null)
+                {
+                    range2D.color = wallLightColor;
+                    // Tắt quả cầu hiển thị của đèn chiếu sáng (chỉ chiếu sáng map, vô hình).
+                    // Dùng reflection vì public API volumetricIntensity không có ở mọi bản URP.
+                    SetVolumetricIntensity(range2D, 0f);
+                    range2D.pointLightOuterRadius *= wallLightRangeScale;
+                    range2D.pointLightInnerRadius = Mathf.Clamp01(range2D.pointLightInnerRadius / wallLightRangeScale);
+                    // Mờ hơn đèn hiển thị — chỉ fill nhẹ, không tạo quầng sáng mới
+                    range2D.intensity *= wallRangeLightIntensity;
+                }
+            }
+        }
     }
 
     // Đảm bảo tường có collider. Gắn tay trong Inspector cũng được —
