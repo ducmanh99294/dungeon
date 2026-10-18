@@ -528,49 +528,44 @@ public class DungeonTilemapPainter : MonoBehaviour
     // hợp lệ (không phải góc/cửa), tránh đuốc nằm chình ình ở góc.
     void PlaceWallLights(DungeonData data, HashSet<Vector2Int> doorCellSet)
     {
-        int counter = 0;
-        int placed = 0;
-        foreach (var (cellPos, wallDir) in _wallDrawOrder)
+    int placed = 0;
+    var placedCells = new List<Vector2Int>();
+
+    foreach (var (cellPos, wallDir) in _wallDrawOrder)
+    {
+        if (doorCellSet.Contains(cellPos)) continue;
+
+        // Cách mọi đuốc đã đặt ít nhất lightTileInterval ô
+        bool tooClose = false;
+        foreach (var p in placedCells)
         {
-            counter++;
-            if (counter % lightTileInterval != 0) continue;
-            if (doorCellSet.Contains(cellPos)) continue;
-
-            Vector2Int lightPos = cellPos;
-            if (_cornerCells.Contains(cellPos))
-            {
-                var back = new Vector2Int(cellPos.x, cellPos.y - 1);
-                if (back.y >= 0 &&
-                    wallMap.GetTile(new Vector3Int(back.x, back.y, 0)) != null &&
-                    !_cornerCells.Contains(back) &&
-                    !doorCellSet.Contains(back))
-                {
-                    lightPos = back; // lùi đuốc 1 ô tránh góc
-                }
-            }
-
-            TileBase lightTile = PickLightTile(wallDir);
-            if (lightTile == null) continue;
-
-            var cell = new Vector3Int(lightPos.x, lightPos.y, 0);
-            if (torchVisualMap != null)
-            {
-                // 2 lớp: giữ nguyên tile tường, vẽ hình đuốc (trong suốt) đè lên lớp riêng
-                if (torchVisualMap.GetTile(cell) == null)
-                    torchVisualMap.SetTile(cell, lightTile);
-            }
-            else
-            {
-                // 1 lớp (cũ): thay thế tile tường bằng tile đèn
-                wallMap.SetTile(cell, lightTile);
-            }
-            if (!lightTileCells.Contains(lightPos))
-                lightTileCells.Add(lightPos);
-            SpawnWallLight(cell, wallDir);
-            placed++;
+            if (Vector2Int.Distance(p, cellPos) < lightTileInterval)
+            { tooClose = true; break; }
         }
-        Debug.Log($"[Dungeon] Đặt {placed} đèn tường (mỗi {lightTileInterval} ô).");
+        if (tooClose) continue;
+
+        TileBase lightTile = PickLightTile(wallDir);
+        if (lightTile == null) continue;
+
+        var cell = new Vector3Int(cellPos.x, cellPos.y, 0);
+        if (torchVisualMap != null)
+        {
+            if (torchVisualMap.GetTile(cell) == null)
+                torchVisualMap.SetTile(cell, lightTile);
+        }
+        else
+        {
+            wallMap.SetTile(cell, lightTile);
+        }
+
+        placedCells.Add(cellPos);
+        if (!lightTileCells.Contains(cellPos))
+            lightTileCells.Add(cellPos);
+        SpawnWallLight(cell, wallDir);
+        placed++;
     }
+    Debug.Log($"[Dungeon] Đặt {placed} đèn tường (cách nhau >= {lightTileInterval} ô).");
+}
 
     // Spawn prefab đèn (Point Light 2D) tại ô tile đèn — chỉ khi có gán prefab.
     // Đèn là con của WallLights nên vẽ lại map sẽ tự xóa đèn cũ.
