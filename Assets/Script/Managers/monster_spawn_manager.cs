@@ -11,6 +11,10 @@ public class MonsterSpawnManager : MonoBehaviour
     [Header("Settings")]
     public string currentZone = "MainMap";
 
+    [Header("Dungeon")]
+    [Tooltip("Kéo DungeonTilemapPainter vào để convert tọa độ cell -> world cho đúng (khi Grid dời khỏi gốc). Không gán = tự tìm qua DungeonManager.")]
+    public DungeonTilemapPainter painter;
+
     // Track monsters đang có trong scene
     private Dictionary<string, GameObject> activeMonsters = new Dictionary<string, GameObject>();
 
@@ -76,12 +80,25 @@ public class MonsterSpawnManager : MonoBehaviour
 
     // ── SPAWN ────────────────────────────────────────────────────────────────
 
+    // Convert tọa độ cell (spawnX/spawnY từ server) -> world qua tilemap.
+    // Dùng painter.CellToWorld để đúng khi Grid dời khỏi gốc (giống player spawn).
+    Vector3 CellToWorld(float cx, float cy)
+    {
+        var p = painter;
+        if (p == null && DungeonManager.Instance != null)
+            p = DungeonManager.Instance.painter;
+        if (p != null)
+            return p.CellToWorld(new Vector2Int(Mathf.RoundToInt(cx), Mathf.RoundToInt(cy)));
+        // Fallback: giả định tilemap ở gốc, mỗi ô = 1 unit
+        return new Vector3(cx + 0.5f, cy + 0.5f, 0f);
+    }
+
     void SpawnMonster(MonsterTemplateData template)
     {
         var prefab = MonsterPrefabRegistry.Instance?.GetPrefab(template.type);
         if (prefab == null) return;
 
-        var pos = new Vector3(template.spawnX, template.spawnY, 0f);
+        var pos = CellToWorld(template.spawnX, template.spawnY);
         var go = Instantiate(prefab, pos, Quaternion.identity);
 
         // Apply stats từ backend

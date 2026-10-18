@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+﻿﻿﻿using UnityEngine;
 
 public class SlimeEnemy : MonoBehaviour
 {
@@ -23,6 +23,10 @@ public class SlimeEnemy : MonoBehaviour
 
     [Header("Hurt")]
     public float hurtDuration = 0.2f; // bao lâu ở trạng thái hurt
+
+    [Header("Animation")]
+    [Tooltip("BẬT = boss: dùng đủ 4 hướng (clip -l/-u/-d). TẮT = quái nhỏ: chỉ dùng clip -l và flipX khi quay phải.")]
+    public bool useFullDirectional = false;
 
     [Header("References")]
     public Transform player;
@@ -54,9 +58,6 @@ public class SlimeEnemy : MonoBehaviour
     {
         startPosition = transform.position;
         PickNewWanderTarget();
-
-        if (health == null)
-            Debug.LogError($"[SlimeEnemy] {name} thiếu Health component — quái sẽ đứng yên!", this);
 
         if (health != null)
         {
@@ -187,13 +188,15 @@ public class SlimeEnemy : MonoBehaviour
         if (direction != Vector2.zero) lastDirection = direction;
 
         string clipName;
-        if (Mathf.Abs(lastDirection.x) >= Mathf.Abs(lastDirection.y))
+        if (!useFullDirectional || Mathf.Abs(lastDirection.x) >= Mathf.Abs(lastDirection.y))
         {
+            // Quái nhỏ (hoặc boss di chuyển ngang): luôn dùng clip -l, flip khi quay phải
             clipName = prefix + "-l";
             if (spriteRenderer != null) spriteRenderer.flipX = lastDirection.x > 0;
         }
         else
         {
+            // Boss di chuyển dọc: dùng clip -u/-d
             if (spriteRenderer != null) spriteRenderer.flipX = false;
             clipName = lastDirection.y > 0 ? prefix + "-u" : prefix + "-d";
         }

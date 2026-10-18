@@ -143,10 +143,24 @@ public class DungeonManager : MonoBehaviour
         if (camFollow != null)
         {
             camFollow.target = player.transform;
-            // Giới hạn camera trong phạm vi map dungeon
+            // Giới hạn camera trong phạm vi map dungeon — tính bằng tọa độ WORLD
+            // (qua tilemap) chứ không phải cell, để đúng khi Grid dời khỏi gốc
             camFollow.useBounds = true;
-            camFollow.minX = 0f; camFollow.maxX = data.width;
-            camFollow.minY = 0f; camFollow.maxY = data.height;
+            if (painter != null && painter.floorMap != null)
+            {
+                Vector3 minWorld = painter.floorMap.CellToWorld(new Vector3Int(0, 0, 0));
+                Vector3 maxWorld = painter.floorMap.CellToWorld(new Vector3Int(data.width, data.height, 0));
+                camFollow.minX = minWorld.x;
+                camFollow.minY = minWorld.y;
+                camFollow.maxX = maxWorld.x;
+                camFollow.maxY = maxWorld.y;
+            }
+            else
+            {
+                camFollow.minX = 0f; camFollow.maxX = data.width;
+                camFollow.minY = 0f; camFollow.maxY = data.height;
+            }
+            Debug.Log($"[Dungeon] Camera bound: ({camFollow.minX},{camFollow.minY}) - ({camFollow.maxX},{camFollow.maxY})");
         }
 
         // 3c. Đảm bảo có đèn 2D — sprite dùng material Lit mà không có đèn sẽ đen thui.
