@@ -27,6 +27,8 @@ public class SlimeEnemy : MonoBehaviour
     [Header("Animation")]
     [Tooltip("BẬT = boss: dùng đủ 4 hướng (clip -l/-u/-d). TẮT = quái nhỏ: chỉ dùng clip -l và flipX khi quay phải.")]
     public bool useFullDirectional = false;
+    [Tooltip("BẬT = nếu Animator thiếu state 'idle-r' thì tự flip 'idle-l' khi quái quay phải (khỏi vẽ idle-r). TẮT = giữ hành vi cũ (chơi đúng clip idle-r).")]
+    public bool autoFlipIdleRight = true;
 
     [Header("References")]
     public Transform player;
@@ -45,6 +47,8 @@ public class SlimeEnemy : MonoBehaviour
 
     private bool isDead = false;
     private float hurtTimer = 0f;
+    // true = Animator có state idle-r vẽ tay; false = thiếu → dùng fallback flip idle-l
+    private bool hasIdleRightClip = false;
 
     void Awake()
     {
@@ -69,6 +73,14 @@ public class SlimeEnemy : MonoBehaviour
         {
             GameObject p = GameObject.FindGameObjectWithTag("Player");
             if (p != null) player = p.transform;
+        }
+
+        // Kiểm tra Animator có state idle-r không (chạy 1 lần lúc Start)
+        if (animator != null)
+        {
+            hasIdleRightClip = animator.HasState(0, Animator.StringToHash("idle-r"));
+            if (!hasIdleRightClip && autoFlipIdleRight)
+                Debug.Log("[SlimeEnemy] Không tìm thấy state 'idle-r' trong Animator → idle quay phải sẽ tự flip 'idle-l'. Muốn dùng clip vẽ tay thì thêm state 'idle-r' vào Controller.");
         }
     }
 
@@ -187,12 +199,33 @@ public class SlimeEnemy : MonoBehaviour
     {
         if (direction != Vector2.zero) lastDirection = direction;
 
+        bool facingRight = lastDirection.x > 0;
         string clipName;
         if (!useFullDirectional || Mathf.Abs(lastDirection.x) >= Mathf.Abs(lastDirection.y))
         {
-            // Quái nhỏ (hoặc boss di chuyển ngang): luôn dùng clip -l, flip khi quay phải
-            clipName = prefix + "-l";
-            if (spriteRenderer != null) spriteRenderer.flipX = lastDirection.x > 0;
+            // Ngang (hoặc quái nhỏ mọi hướng)
+            if (prefix == "idle")
+            {
+                // Idle: ưu tiên clip vẽ tay đủ 2 bản (idle-l/idle-r), không flip.
+                // Thiếu idle-r + bật Auto Flip Idle Right → flip idle-l thay vì kẹt animation.
+                bool useDrawnRight = hasIdleRightClip || !autoFlipIdleRight;
+                if (facingRight && useDrawnRight)
+                {
+                    clipName = "idle-r";
+                    if (spriteRenderer != null) spriteRenderer.flipX = false;
+                }
+                else
+                {
+                    clipName = "idle-l";
+                    if (spriteRenderer != null) spriteRenderer.flipX = facingRight;
+                }
+            }
+            else
+            {
+                // Các clip khác chỉ có -l — flip khi quay phải
+                clipName = prefix + "-l";
+                if (spriteRenderer != null) spriteRenderer.flipX = facingRight;
+            }
         }
         else
         {
@@ -207,8 +240,20 @@ public class SlimeEnemy : MonoBehaviour
     void SetAnimation(string clipName)
     {
         if (animator == null) return;
+        // Clip chưa có trong Animator (chưa vẽ/khai báo) → fallback để không đứng đơ
+        if (!HasClip(clipName))
+        {
+            if (HasClip("move-l")) clipName = "move-l";
+            else if (HasClip("idle-l")) clipName = "idle-l";
+            else return;
+        }
         if (animator.GetCurrentAnimatorStateInfo(0).IsName(clipName)) return;
         animator.Play(clipName);
+    }
+
+    bool HasClip(string clipName)
+    {
+        return animator != null && animator.HasState(0, Animator.StringToHash(clipName));
     }
 
     void Die()

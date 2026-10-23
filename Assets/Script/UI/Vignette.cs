@@ -1,16 +1,18 @@
-// Vignette.cs — viền màn hình tối dần, tăng chiều sâu cho dungeon.
-// Kéo script vào một GameObject bất kỳ trong scene Dungeon (vd Main Camera).
-// Tự tạo Canvas overlay + texture gradient bằng code (không cần art, không cần post-processing).
+// Vignette.cs — viền màn hình tối dần, ôm khít theo camera.
+// Kéo script vào Main Camera. Script tự tạo object con "VignetteOverlay"
+// (SpriteRenderer) — bạn click vào nó trong lúc Play để thấy/thử.
+// Mọi thông số chỉnh live trong Inspector được (Intensity áp dụng ngay,
+// Inner Radius thì chuột phải vào component → Rebuild Vignette).
+// Tự tạo texture ellipse khớp đúng tỉ lệ màn hình bằng code (không cần art).
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Vignette : MonoBehaviour
 {
-    [Header("Vignette")]
-    [Tooltip("Độ tối ở rìa (0-1)")]
+    [Header("Vignette (Intensity chỉnh live được lúc Play)")]
+    [Tooltip("Độ tối ở rìa (0-1) — tăng lên nếu thấy nhạt quá")]
     [Range(0f, 1f)]
-    public float intensity = 0.55f;
-    [Tooltip("Rìa bắt đầu tối từ bao xa (0 = tâm, 1 = góc màn hình)")]
+    public float intensity = 0.6f;
+    [Tooltip("Rìa bắt đầu tối từ bao xa (0 = tâm, 1 = góc). Đổi xong chuột phải → Rebuild Vignette")]
     [Range(0.2f, 0.9f)]
     public float innerRadius = 0.55f;
     [Tooltip("Màu viền (đen hoặc xanh tím cho ma mị)")]
@@ -21,79 +23,115 @@ public class Vignette : MonoBehaviour
     [Tooltip("Tốc độ thở")]
     public float breatheSpeed = 0.5f;
 
-    Image img;
+    GameObject overlayGO;
+    SpriteRenderer sr;
+    Camera cam;
     float baseAlpha = 1f;
 
     void Start()
     {
-        // Canvas overlay
-        GameObject canvasGO = new GameObject("VignetteCanvas");
-        canvasGO.transform.SetParent(transform, false);
-        Canvas canvas = canvasGO.AddComponent<Canvas>();
-        canvas.renderMode = RenderMode.ScreenSpaceOverlay;
-        canvas.sortingOrder = 999; // trên hết
+        Build();
+    }
 
-        // Image fullscreen
-        GameObject imgGO = new GameObject("VignetteImage");
-        imgGO.transform.SetParent(canvasGO.transform, false);
-        img = imgGO.AddComponent<Image>();
-        img.raycastTarget = false;
+    [ContextMenu("Rebuild Vignette")]
+    public void Rebuild()
+    {
+        if (overlayGO != null) Destroy(overlayGO);
+        Build();
+    }
 
-        Texture2D tex = MakeVignetteTexture(256);
-        img.sprite = Sprite.Create(tex, new Rect(0, 0, 256, 256), new Vector2(0.5f, 0.5f));
+    void Build()
+    {
+        cam = GetComponent<Camera>();
+        if (cam == null) cam = Camera.main;
+        if (cam == null)
+        {
+            Debug.LogError("[Vignette] Không tìm thấy Camera nào!");
+            return;
+        }
 
-        var rt = img.rectTransform;
-        rt.anchorMin = Vector2.zero;
-        rt.anchorMax = Vector2.one;
-        rt.offsetMin = Vector2.zero;
-        rt.offsetMax = Vector2.zero;
+        float aspect = cam.aspect;
+        Texture2D tex = MakeVignetteTexture(256, aspect);
+        // PPU 100 → sprite có kích thước đúng tỉ lệ màn hình
+        Sprite sprite = Sprite.Create(tex, new Rect(0, 0, tex.width, tex.height),
+            new Vector2(0.5f, 0.5f), 100f);
 
+        overlayGO = new GameObject("VignetteOverlay");
+        overlayGO.transform.SetParent(cam.transform, false);
+        overlayGO.transform.localPosition = new Vector3(0f, 0f, 1f);
+        overlayGO.transform.localRotation = Quaternion.identity;
+
+        sr = overlayGO.AddComponent<SpriteRenderer>();
+        sr.sprite = sprite;
+        sr.sortingOrder = 999;
+
+        FitToCamera(tex);
         ApplyColor();
+        Debug.Log($"[Vignette] đã tạo {overlayGO.name} trên camera {cam.gameObject.name} (aspect {aspect:F2})");
+    }
+
+    // Chỉnh Intensity lúc Play → tối/sáng ngay không cần rebuild
+    void OnValidate()
+    {
+        if (sr != null && Application.isPlaying)
+            ApplyColor();
     }
 
     void Update()
     {
-        if (breatheAmount > 0f && img != null)
+        if (breatheAmount > 0f && sr != null)
         {
             float b = 1f + Mathf.Sin(Time.time * breatheSpeed) * breatheAmount;
-            var c = img.color;
+            var c = sr.color;
             c.a = baseAlpha * b;
-            img.color = c;
+            sr.color = c;
         }
+    }
+
+    void FitToCamera(Texture2D tex)
+    {
+        if (cam == null || sr == null) return;
+        float h = cam.orthographicSize * 2f;
+        float w = h * cam.aspect;
+        // Sprite đã đúng tỉ lệ màn hình → scale cho vừa khít view
+        float sx = w / (tex.width / 100f);
+        float sy = h / (tex.height / 100f);
+        sr.transform.localScale = new Vector3(sx, sy, 1f);
     }
 
     void ApplyColor()
     {
-        if (img == null) return;
+        if (sr == null) return;
         Color c = vignetteColor;
         c.a = intensity;
         baseAlpha = intensity;
-        img.color = c;
+        sr.color = c;
     }
 
-    // Cho phép đổi runtime (vd theo tầng)
     public void SetIntensity(float value)
     {
         intensity = Mathf.Clamp01(value);
         ApplyColor();
     }
 
-    // Texture: trong suốt ở tâm, tối dần ra rìa
-    Texture2D MakeVignetteTexture(int size)
+    // Texture ellipse: trong suốt ở tâm, tối dần ra đúng 4 góc màn hình
+    Texture2D MakeVignetteTexture(int size, float aspect)
     {
-        Texture2D tex = new Texture2D(size, size, TextureFormat.RGBA32, false);
-        Color[] pixels = new Color[size * size];
-        float center = size / 2f;
-        for (int y = 0; y < size; y++)
+        int w = size;
+        int h = Mathf.Max(8, Mathf.RoundToInt(size / aspect));
+        Texture2D tex = new Texture2D(w, h, TextureFormat.RGBA32, false);
+        Color[] pixels = new Color[w * h];
+        float cx = w / 2f, cy = h / 2f;
+        for (int y = 0; y < h; y++)
         {
-            for (int x = 0; x < size; x++)
+            for (int x = 0; x < w; x++)
             {
-                float dx = (x - center) / center;
-                float dy = (y - center) / center;
+                float dx = (x - cx) / cx; // [-1, 1]
+                float dy = (y - cy) / cy; // [-1, 1]
                 float d = Mathf.Sqrt(dx * dx + dy * dy) / 1.4142f; // 0 tâm → 1 góc
                 float t = Mathf.Clamp01((d - innerRadius) / (1f - innerRadius));
                 t = t * t * (3f - 2f * t); // smoothstep
-                pixels[y * size + x] = new Color(1f, 1f, 1f, t);
+                pixels[y * w + x] = new Color(1f, 1f, 1f, t);
             }
         }
         tex.SetPixels(pixels);

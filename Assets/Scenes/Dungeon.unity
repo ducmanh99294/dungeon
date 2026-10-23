@@ -130,6 +130,8 @@ GameObject:
   - component: {fileID: 87358516}
   - component: {fileID: 87358515}
   - component: {fileID: 87358514}
+  - component: {fileID: 87358518}
+  - component: {fileID: 87358517}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -171,6 +173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MonsterSpawnManager
   currentZone: MainMap
+  painter: {fileID: 0}
 --- !u!4 &87358516
 Transform:
   m_ObjectHideFlags: 0
@@ -186,6 +189,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &87358517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 87358513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41333776313b537458212409d47b3ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RaidManager
+  ownWarehouseColor: {r: 0.3, g: 0.7, b: 0.3, a: 1}
+  enemyWarehouseColor: {r: 0.9, g: 0.3, b: 0.3, a: 1}
+  carriedText: {fileID: 0}
+--- !u!114 &87358518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 87358513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15a7e52e15f293149b8ca6a5b94130e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TunnelManager
+  tunnelColor: {r: 0.6, g: 0.4, b: 0.9, a: 1}
+  markerSize: 1
+  filterByScene: 1
 --- !u!1 &121630005
 GameObject:
   m_ObjectHideFlags: 0
@@ -535,6 +568,9 @@ GameObject:
   - component: {fileID: 562238206}
   - component: {fileID: 562238205}
   - component: {fileID: 562238204}
+  - component: {fileID: 562238211}
+  - component: {fileID: 562238210}
+  - component: {fileID: 562238209}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -680,6 +716,71 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &562238209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 562238203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab2d925a47738bf4cb65e5992b97c08d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Vignette
+  intensity: 0.55
+  innerRadius: 0.55
+  vignetteColor: {r: 0, g: 0, b: 0, a: 1}
+  breatheAmount: 0.05
+  breatheSpeed: 0.5
+--- !u!114 &562238210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 562238203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23e45e8951406ee47a29e90b1982a492, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Fireflies
+  fireflyCount: 24
+  minSize: 0.12
+  maxSize: 0.28
+  brightness: 0.9
+  tierFireflyColors:
+  - {r: 1, g: 0.8, b: 0.42, a: 1}
+  - {r: 0.55, g: 0.88, b: 1, a: 1}
+  - {r: 0.82, g: 0.55, b: 1, a: 1}
+--- !u!114 &562238211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 562238203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37aa5050f87467046a40e496293c8d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GroundFog
+  fogTexture: {fileID: 2800000, guid: 2f78188549f225349a2e896ed6771c58, type: 3}
+  fogThreshold: 0.062
+  fogPatternScale: 4
+  lockToWorld: 1
+  fogWorldCenter: {x: 0, y: 0}
+  fogWorldSize: {x: 80, y: 80}
+  layer1Opacity: 0.058
+  layer1Speed: 0.45
+  layer1Dir: {x: 1, y: 0.25}
+  layer2Opacity: 0.09
+  layer2Speed: 0.28
+  layer2Dir: {x: -0.7, y: 0.4}
+  tierFogColors:
+  - {r: 0.75534, g: 0.7642503, b: 0.7735849, a: 1}
+  - {r: 0.62, g: 0.72, b: 0.84, a: 1}
+  - {r: 0.6, g: 0.52, b: 0.7, a: 1}
 --- !u!1 &600089132
 GameObject:
   m_ObjectHideFlags: 0
