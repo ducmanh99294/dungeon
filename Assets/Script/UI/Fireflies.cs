@@ -1,20 +1,21 @@
 // Fireflies.cs — đom đóm / spore bay lơ lửng trong dungeon.
-// Kéo script vào Main Camera trong scene Dungeon.
-// Tự tạo ParticleSystem + texture phát sáng bằng code (không cần art).
-// Màu tự đổi theo tầng: tầng 1 đom đóm vàng ấm, tầng 2 xanh băng, tầng 3 spore tím.
+// Kéo script vào Main Camera. Script tự tạo object con "FirefliesEmitter"
+// chứa ParticleSystem — bạn click vào nó trong lúc Play để chỉnh tay
+// mọi thông số gốc của Unity ngoài code.
+// Màu tự đổi theo tầng: tầng 1 vàng ấm, tầng 2 xanh băng, tầng 3 tím.
 using UnityEngine;
 
 public class Fireflies : MonoBehaviour
 {
-    [Header("Đom đóm")]
+    [Header("Đom đóm (chỉnh live được lúc Play)")]
     [Tooltip("Số hạt")]
     public int fireflyCount = 24;
     [Tooltip("Kích thước hạt")]
     public float minSize = 0.12f;
     public float maxSize = 0.28f;
-    [Tooltip("Độ sáng")]
-    [Range(0.2f, 1.5f)]
-    public float brightness = 0.9f;
+    [Tooltip("Độ sáng — tăng lên nếu thấy mờ quá")]
+    [Range(0.2f, 2f)]
+    public float brightness = 1.2f;
 
     [Header("Màu theo tầng")]
     public Color[] tierFireflyColors = new Color[]
@@ -24,24 +25,42 @@ public class Fireflies : MonoBehaviour
         new Color(0.82f, 0.55f, 1f), // tầng 3: tím (spore ma)
     };
 
+    GameObject emitterGO;
     ParticleSystem ps;
+    ParticleSystemRenderer psr;
     int currentTier = -1;
     float tierCheckTimer;
     DungeonManager dungeonManager;
 
     void Start()
     {
+        Build();
+    }
+
+    [ContextMenu("Rebuild Fireflies")]
+    public void Rebuild()
+    {
+        if (emitterGO != null) Destroy(emitterGO);
+        Build();
+    }
+
+    void Build()
+    {
         dungeonManager = FindFirstObjectByType<DungeonManager>();
 
-        ps = gameObject.AddComponent<ParticleSystem>();
-        var psr = gameObject.GetComponent<ParticleSystemRenderer>();
+        emitterGO = new GameObject("FirefliesEmitter");
+        emitterGO.transform.SetParent(transform, false);
+        emitterGO.transform.localPosition = Vector3.zero;
 
-        // Texture chấm sáng (tâm trắng, hào quang mềm)
+        ps = emitterGO.AddComponent<ParticleSystem>();
+        psr = emitterGO.GetComponent<ParticleSystemRenderer>();
+
         Texture2D tex = MakeGlowTexture(64);
         Shader shader = Shader.Find("Sprites/Default");
         Material mat = shader != null ? new Material(shader) : new Material(psr.sharedMaterial);
         mat.mainTexture = tex;
         psr.material = mat;
+        psr.sortingOrder = 6; // trên sương và tilemap
 
         var main = ps.main;
         main.loop = true;
@@ -60,7 +79,6 @@ public class Fireflies : MonoBehaviour
         shape.shapeType = ParticleSystemShapeType.Box;
         UpdateEmissionBox();
 
-        // Bay lượn tự nhiên bằng Noise
         var noise = ps.noise;
         noise.enabled = true;
         noise.strength = new ParticleSystem.MinMaxCurve(0.4f, 1f);
@@ -68,7 +86,6 @@ public class Fireflies : MonoBehaviour
         noise.scrollSpeed = 0.4f;
         noise.quality = ParticleSystemNoiseQuality.Medium;
 
-        // Nhấp nháy: mờ dần vào/ra (như chớp sáng)
         var col = ps.colorOverLifetime;
         col.enabled = true;
         Gradient g = new Gradient();
@@ -86,6 +103,17 @@ public class Fireflies : MonoBehaviour
 
         ApplyTierColor();
         ps.Play();
+        Debug.Log($"[Fireflies] đã tạo {emitterGO.name} trên {gameObject.name}");
+    }
+
+    void OnValidate()
+    {
+        if (ps == null || !Application.isPlaying) return;
+        var main = ps.main;
+        main.startSize = new ParticleSystem.MinMaxCurve(minSize, maxSize);
+        var emission = ps.emission;
+        emission.rateOverTime = fireflyCount / 8f;
+        ApplyTierColor();
     }
 
     void Update()
@@ -104,6 +132,7 @@ public class Fireflies : MonoBehaviour
 
     void ApplyTierColor()
     {
+        if (ps == null) return;
         int tier = dungeonManager != null ? dungeonManager.dungeonTier : 1;
         currentTier = tier;
         Color c = (tierFireflyColors != null && tier >= 1 && tier <= tierFireflyColors.Length)
@@ -119,14 +148,13 @@ public class Fireflies : MonoBehaviour
     {
         Camera cam = GetComponent<Camera>();
         if (cam == null) cam = Camera.main;
-        if (cam == null) return;
+        if (cam == null || ps == null) return;
         float h = cam.orthographicSize * 2f;
         float w = h * cam.aspect;
         var shape = ps.shape;
         shape.scale = new Vector3(w * 1.2f, h * 1.2f, 1f);
     }
 
-    // Texture chấm phát sáng: tâm đặc, hào quang mờ
     Texture2D MakeGlowTexture(int size)
     {
         Texture2D tex = new Texture2D(size, size, TextureFormat.RGBA32, false);
@@ -140,7 +168,7 @@ public class Fireflies : MonoBehaviour
                 float dy = (y - center) / center;
                 float d = Mathf.Sqrt(dx * dx + dy * dy);
                 float a = Mathf.Clamp01(1f - d);
-                a = Mathf.Pow(a, 2.5f); // hào quang gọn
+                a = Mathf.Pow(a, 2.5f);
                 pixels[y * size + x] = new Color(1f, 1f, 1f, a);
             }
         }

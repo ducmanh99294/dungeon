@@ -29,7 +29,6 @@ public class NetworkManager : MonoBehaviour
     public event Action<MonsterKilledData> OnMonsterKilled;
     public event Action<ZoneMonstersData> OnZoneMonsters;
     public event Action<string> OnPuzzleSolved;
-
     public event Action OnConnected;
     public event Action OnDisconnected;
     public event Action<PlayerData> OnPlayerJoined;
@@ -40,6 +39,19 @@ public class NetworkManager : MonoBehaviour
     public event Action<LootData> OnLootSpawned;
     public event Action<string> OnLootRemoved;
     public event Action<ChatData> OnChatMessage;
+    public event Action<TunnelListData> OnTunnelList;
+    public event Action<TeleportData> OnPlayerTeleported;
+    public event Action<string> OnCarriedUpdated;
+    public event Action<string> OnStealAlert;
+    public event Action<string> OnPlayerKilled;
+    public event Action<DayNightStateData> OnDayNightUpdate;
+    public event Action<DayNightStateData> OnDayNightPhaseChanged;
+    public event Action OnMatchEnded;
+    public event Action<FarmPlotsData> OnFarmPlots;
+    public event Action<PlotUpdatedData> OnPlotUpdated;
+    public event Action<string> OnWarehouseUpdated;
+    public event Action<ScoreUpdatedData> OnScoreUpdated;
+    public event Action<LeaderboardData> OnLeaderboardUpdate;
 
     void Awake()
     {
@@ -194,6 +206,22 @@ public class NetworkManager : MonoBehaviour
             var data = res.GetValue<ChatData>();
             OnChatMessage?.Invoke(data);
         });
+
+        socket.On("daynight_update", res => OnDayNightUpdate?.Invoke(res.GetValue<DayNightStateData>()));
+        socket.On("phase_changed", res => OnDayNightPhaseChanged?.Invoke(res.GetValue<DayNightStateData>()));
+        socket.On("match_ended", res => OnMatchEnded?.Invoke());
+        socket.On("farm_plots", res => OnFarmPlots?.Invoke(res.GetValue<FarmPlotsData>()));
+        socket.On("plot_updated", res => OnPlotUpdated?.Invoke(res.GetValue<PlotUpdatedData>()));
+        socket.On("warehouse_updated", res => OnWarehouseUpdated?.Invoke(res.GetValue<string>()));
+        socket.On("score_updated", res => OnScoreUpdated?.Invoke(res.GetValue<ScoreUpdatedData>()));
+        socket.On("leaderboard_update", res => OnLeaderboardUpdate?.Invoke(res.GetValue<LeaderboardData>()));
+        socket.On("tunnel_list", res => OnTunnelList?.Invoke(res.GetValue<TunnelListData>()));
+        socket.On("player_teleported", res => OnPlayerTeleported?.Invoke(res.GetValue<TeleportData>()));
+        socket.On("carried_updated", res => OnCarriedUpdated?.Invoke(res.GetValue<string>()));
+        socket.On("steal_alert", res => OnStealAlert?.Invoke(res.GetValue<string>()));
+        socket.On("player_killed", res => OnPlayerKilled?.Invoke(res.GetValue<string>()));
+        socket.On("player_damaged", res => { /* hiện HP nếu cần */ });
+
     }
 
     // ── EMIT EVENTS ─────────────────────────────────────────────────────────
@@ -203,6 +231,13 @@ public class NetworkManager : MonoBehaviour
         socket?.Emit("join_world", new { scene, x, y });
         Log($"[Network] join_world: {scene} ({x},{y})");
     }
+
+    public void Emit(string eventName, string jsonData)
+    {
+        if (!IsConnected) return;
+        socket?.Emit(eventName, Newtonsoft.Json.JsonConvert.DeserializeObject(jsonData));
+    }
+
 
     public void SendMove(float x, float y)
     {
