@@ -82,9 +82,6 @@ public class InventoryManager : MonoBehaviour
         isOpen = !isOpen;
         menuPanel.SetActive(isOpen);
         if (isOpen) RefreshGrid();
-
-        // Pause game khi mở menu
-        Time.timeScale = isOpen ? 0f : 1f;
     }
 
     // ── THÊM ITEM ───────────────────────────────

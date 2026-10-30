@@ -52,6 +52,7 @@ public class NetworkManager : MonoBehaviour
     public event Action<string> OnWarehouseUpdated;
     public event Action<ScoreUpdatedData> OnScoreUpdated;
     public event Action<LeaderboardData> OnLeaderboardUpdate;
+    public event Action<string> OnMapData;
 
     void Awake()
     {
@@ -221,6 +222,10 @@ public class NetworkManager : MonoBehaviour
         socket.On("steal_alert", res => OnStealAlert?.Invoke(res.GetValue<string>()));
         socket.On("player_killed", res => OnPlayerKilled?.Invoke(res.GetValue<string>()));
         socket.On("player_damaged", res => { /* hiện HP nếu cần */ });
+        socket.On("map_data", (data) =>
+        {
+            OnMapData?.Invoke(data.GetValue<string>());
+        });
 
     }
 

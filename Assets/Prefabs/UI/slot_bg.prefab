@@ -86,7 +86,7 @@ GameObject:
   - component: {fileID: 2984070716314277400}
   - component: {fileID: 842733948578137657}
   - component: {fileID: 5206471889330842527}
-  - component: {fileID: 3196123094559468281}
+  - component: {fileID: 8365908436940627671}
   m_Layer: 0
   m_Name: slot_bg
   m_TagString: Untagged
@@ -155,7 +155,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &3196123094559468281
+--- !u!114 &8365908436940627671
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -164,7 +164,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2224892971370053383}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15a8a80e8d872bd4faba6d7a3550d378, type: 3}
+  m_Script: {fileID: 11500000, guid: 47bd629052f700143a355d894e835eea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemSlot
   iconImage: {fileID: 2784943904634693795}
@@ -172,14 +172,9 @@ MonoBehaviour:
   amountText: {fileID: 3841811917665367723}
   bgImage: {fileID: 3765284776428297617}
   normalBg: {fileID: -9165651224512837512, guid: b48720c5297bf1b40b273891d2eb9baa, type: 3}
-  selectedBg: {fileID: -47240829442599701, guid: b48720c5297bf1b40b273891d2eb9baa, type: 3}
+  selectedBg: {fileID: -9165651224512837512, guid: b48720c5297bf1b40b273891d2eb9baa, type: 3}
   hoverBg: {fileID: -9165651224512837512, guid: b48720c5297bf1b40b273891d2eb9baa, type: 3}
-  raritySprites:
-  - {fileID: -9165651224512837512, guid: b48720c5297bf1b40b273891d2eb9baa, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  raritySprites: []
 --- !u!1 &2489401019742655300
 GameObject:
   m_ObjectHideFlags: 0
