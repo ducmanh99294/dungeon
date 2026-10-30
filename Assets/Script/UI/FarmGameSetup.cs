@@ -8,12 +8,27 @@ using UnityEngine.UI;
 
 public class FarmGameSetup : MonoBehaviour
 {
-    [Header("Màu chủ đạo")]
-    public Color panelBg = new Color(0.08f, 0.10f, 0.16f, 0.85f);
-    public Color accentColor = new Color(0.95f, 0.75f, 0.20f); // vàng gold
-    public Color textColor = Color.white;
-    public Color dimTextColor = new Color(0.7f, 0.7f, 0.75f);
+    [Header("Chế độ")]
+    [Tooltip("BẬT = tự tạo UI lúc Play. TẮT = bạn tự vẽ UI tay trong Editor (nhớ nối reference bên dưới).")]
+    public bool autoCreateUI = true;
+
+    [Header("Font chữ")]
+    [Tooltip("Kéo font .ttf/.otf của bạn vào đây. Để trống = dùng font mặc định của Unity.")]
+    public Font customFont;
+
+    [Header("Màu chủ đạo (theme Farm ấm)")]
+    public Color panelBg = new Color(0.13f, 0.10f, 0.07f, 0.92f);   // nâu đất đậm
+    public Color panelBorder = new Color(0.79f, 0.64f, 0.15f, 0.9f); // viền vàng gold
+    public Color accentColor = new Color(0.98f, 0.78f, 0.22f);       // vàng gold
+    public Color textColor = new Color(1f, 0.97f, 0.90f);            // trắng ấm
+    public Color dimTextColor = new Color(0.75f, 0.68f, 0.58f);
+    public Color greenColor = new Color(0.35f, 0.75f, 0.35f);
+    public Color redColor = new Color(0.90f, 0.30f, 0.28f);
     public int fontSize = 15;
+
+    // Cache sprite bo góc (tạo 1 lần)
+    static Sprite roundedPanelSprite;
+    static Sprite roundedButtonSprite;
 
     Font defaultFont;
     GameObject canvasGO;
@@ -49,7 +64,7 @@ public class FarmGameSetup : MonoBehaviour
 
     IEnumerator SetupRoutine()
     {
-        defaultFont = GetBuiltinFont();
+        defaultFont = customFont != null ? customFont : GetBuiltinFont();
         float timeout = 10f;
         while (NetworkManager.Instance == null && timeout > 0)
         {
@@ -57,7 +72,8 @@ public class FarmGameSetup : MonoBehaviour
             timeout -= Time.deltaTime;
         }
         SetupManagers();
-        SetupUI();
+        if (autoCreateUI) SetupUI();
+        else Debug.Log("[Setup] autoCreateUI tắt — dùng UI vẽ tay, nhớ nối reference vào managers");
         Debug.Log("[Setup] Hoàn tất — game sẵn sàng");
     }
 
@@ -325,6 +341,62 @@ public class FarmGameSetup : MonoBehaviour
         if (phaseBannerGO != null) phaseBannerGO.SetActive(false);
     }
 
+    // Tạo sprite bo góc có viền (dùng cho panel/nút)
+    static Sprite MakeRoundedSprite(int size, int radius, Color fill, Color border, int borderW)
+    {
+        var tex = new Texture2D(size, size, TextureFormat.RGBA32, false);
+        var pixels = new Color[size * size];
+        float r = radius;
+        for (int y = 0; y < size; y++)
+        {
+            for (int x = 0; x < size; x++)
+            {
+                // Khoảng cách tới góc gần nhất
+                float cx = Mathf.Min(x, size - 1 - x);
+                float cy = Mathf.Min(y, size - 1 - y);
+                float cornerDist = Mathf.Sqrt(
+                    Mathf.Pow(Mathf.Max(0, r - cx), 2) +
+                    Mathf.Pow(Mathf.Max(0, r - cy), 2));
+                float alpha = 1f - Mathf.Clamp01((cornerDist - (r - 1)) / 1f);
+
+                Color col;
+                // Viền: pixel gần mép
+                bool isBorder = x < borderW || y < borderW ||
+                                x >= size - borderW || y >= size - borderW ||
+                                cornerDist > r - borderW;
+                col = isBorder ? border : fill;
+                col.a *= alpha;
+                pixels[y * size + x] = col;
+            }
+        }
+        tex.SetPixels(pixels);
+        tex.Apply();
+        // Border 4 phía để 9-slice đúng
+        return Sprite.Create(tex, new Rect(0, 0, size, size),
+            new Vector2(0.5f, 0.5f), 100f, 0,
+            SpriteMeshType.FullRect,
+            new Vector4(radius, radius, radius, radius));
+    }
+
+    static Sprite GetPanelSprite()
+    {
+        if (roundedPanelSprite == null)
+            roundedPanelSprite = MakeRoundedSprite(64, 14,
+                new Color(0.13f, 0.10f, 0.07f, 0.94f),
+                new Color(0.79f, 0.64f, 0.15f, 0.95f), 3);
+        return roundedPanelSprite;
+    }
+
+    static Sprite GetButtonSprite(Color baseColor)
+    {
+        // Nút: bo góc, viền sáng hơn 1 tone
+        Color border = new Color(
+            Mathf.Min(1, baseColor.r + 0.25f),
+            Mathf.Min(1, baseColor.g + 0.25f),
+            Mathf.Min(1, baseColor.b + 0.25f), 1f);
+        return MakeRoundedSprite(48, 12, baseColor, border, 2);
+    }
+
     // ── HELPERS ───────────────────────────────────────────────────────
 
     GameObject CreatePanel(string name, Vector2 anchorMin, Vector2 anchorMax, Vector2 size, Vector2 anchoredPos)
@@ -336,11 +408,13 @@ public class FarmGameSetup : MonoBehaviour
         rt.sizeDelta = size;
         rt.anchoredPosition = anchoredPos;
         var img = go.AddComponent<Image>();
-        img.color = panelBg;
-        // Viền mỏng
-        var outline = go.AddComponent<Outline>();
-        outline.effectColor = new Color(1, 1, 1, 0.12f);
-        outline.effectDistance = new Vector2(1, 1);
+        img.sprite = GetPanelSprite();
+        img.type = Image.Type.Sliced; // 9-slice: bo góc không méo khi co giãn
+        img.color = Color.white; // màu đã có trong sprite
+        // Bóng đổ nhẹ
+        var shadow = go.AddComponent<Shadow>();
+        shadow.effectColor = new Color(0, 0, 0, 0.45f);
+        shadow.effectDistance = new Vector2(3, -3);
         return go;
     }
 
